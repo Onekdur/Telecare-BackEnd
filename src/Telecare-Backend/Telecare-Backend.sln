@@ -5,6 +5,10 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare-Backend", "Telecare-Backend\Telecare-Backend.csproj", "{5101D07A-E08B-438B-8296-57680719CE9B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Layer", "Domain Layer", "{5105D341-0BEA-4977-A233-D3EC810776D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{F2DB6731-1231-412E-9D66-BD57C9B7FA87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{5101D07A-E08B-438B-8296-57680719CE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5101D07A-E08B-438B-8296-57680719CE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5101D07A-E08B-438B-8296-57680719CE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2DB6731-1231-412E-9D66-BD57C9B7FA87} = {5105D341-0BEA-4977-A233-D3EC810776D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CA75C79-C80A-4E65-916F-FBBECAA50740}
