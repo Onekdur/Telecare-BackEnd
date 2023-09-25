@@ -11,5 +11,6 @@
         public Gender Gender { get; set; }
         public bool IsDeactivate { get; set; }
         public bool IsBlocked { get; set; }
+        public RelationshipStatus RelationShipStatus { get; set; }
     }
 }
