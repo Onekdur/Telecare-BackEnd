@@ -1,6 +1,6 @@
-﻿namespace Entities.Model
+﻿namespace Entities.Models.Post.PostContent.Video
 {
-    public class Post
+    public class VideoComment
     {
         public Guid Id { get; set; }
         public string Text { get; set; }

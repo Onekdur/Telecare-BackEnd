@@ -1,6 +1,6 @@
 ﻿namespace Entities.Models.Post.PostContent.Photo
 {
-    internal class PhotoCommentLike
+    public class PhotoShare
     {
         public Guid Id { get; set; }
     }
