@@ -1,4 +1,6 @@
-﻿namespace Entities.Admin
+﻿using Entities.Models;
+
+namespace Entities.Admin
 {
     public class BlockMember
     {

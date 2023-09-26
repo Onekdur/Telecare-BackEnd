@@ -1,4 +1,6 @@
-﻿namespace Entities.Models
+﻿using Entities.Admin;
+
+namespace Entities.Models
 {
     public class Member
     {
@@ -10,11 +12,7 @@
         public string Password { get; set; }
         public Gender Gender { get; set; }
         public bool IsDeactivate { get; set; }
-        public bool IsBlocked { get; set; }
         public RelationshipStatus RelationShipStatus { get; set; }
-        public Adress Adress { get; set; }
-        public List<Work> Works { get; set; }
-        public List<Education> Educations { get; set; }
 
     }
 }
