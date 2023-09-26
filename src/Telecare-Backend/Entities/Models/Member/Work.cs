@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.Models
+﻿namespace Entities.Models
 {
-    internal class Work
+    public class Work
     {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string ComapnyName { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
+        public bool CurrentlyRunning { get; set; }
+        public bool Description { get; set; }
+        public Member Member { get; set; }
     }
 }

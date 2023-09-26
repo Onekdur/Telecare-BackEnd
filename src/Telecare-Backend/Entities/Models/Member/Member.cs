@@ -2,7 +2,7 @@
 {
     public class Member
     {
-        public Guid Id { get; set; }
+        public Guid MemberId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string? Email { get; set; }
@@ -12,5 +12,9 @@
         public bool IsDeactivate { get; set; }
         public bool IsBlocked { get; set; }
         public RelationshipStatus RelationShipStatus { get; set; }
+        public Adress Adress { get; set; }
+        public List<Work> Works { get; set; }
+        public List<Education> Educations { get; set; }
+
     }
 }
