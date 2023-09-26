@@ -1,8 +1,8 @@
-﻿namespace Entities.Models
+﻿namespace Entities.Models.Post
 {
     public class CommentLike
     {
         public Guid Id;
-        
+
     }
 }

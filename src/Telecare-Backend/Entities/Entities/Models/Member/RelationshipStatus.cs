@@ -1,4 +1,4 @@
-﻿namespace Entities.Models
+﻿namespace Entities.Models.Member
 {
     public enum RelationshipStatus
     {

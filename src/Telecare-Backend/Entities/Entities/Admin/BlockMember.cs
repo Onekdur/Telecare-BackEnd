@@ -1,6 +1,6 @@
 ﻿using Entities.Models;
 
-namespace Entities.Admin
+namespace Telecare.Domain.Entities.Admin
 {
     public class BlockMember
     {

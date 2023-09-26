@@ -1,6 +1,4 @@
-﻿using Entities.Admin;
-
-namespace Entities.Models
+﻿namespace Entities.Models.Member
 {
     public class Member
     {
