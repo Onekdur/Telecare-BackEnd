@@ -8,6 +8,12 @@ namespace Telecare.Persistance.Contexts.Configuration
     {
         public void Configure(EntityTypeBuilder<Member> builder)
         {
+            builder.Property(m => m.FirstName)
+                .HasMaxLength(50);
+
+            builder.Property(m => m.LastName)
+                .HasMaxLength(50);
+
             //Ignore some builtin properties
             builder.Ignore(e => e.NormalizedUserName);
             builder.Ignore(e => e.UserName);
@@ -17,7 +23,6 @@ namespace Telecare.Persistance.Contexts.Configuration
             builder.Ignore(e => e.LockoutEnabled);
             builder.Ignore(e => e.LockoutEnd);
             builder.Ignore(e => e.AccessFailedCount);
-            builder.Ignore(e => e.PhoneNumberConfirmed);
 
             //configure some constraint using flunt api
             builder.Property(e => e.Gender)
