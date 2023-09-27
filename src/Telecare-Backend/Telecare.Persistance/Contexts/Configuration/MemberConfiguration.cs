@@ -25,12 +25,26 @@ namespace Telecare.Persistance.Contexts.Configuration
             builder.Ignore(e => e.AccessFailedCount);
 
             //configure some constraint using flunt api
-            builder.Property(e => e.Gender)
+            builder.Property(e => e.GenDer)
                 .HasConversion<string>();
 
             builder.Property(e => e.RelationShipStatus)
             .HasConversion<string>();
 
+            //seed data
+            builder.HasData(new Member()
+            {
+                Id = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
+                Email = "mdsojibhosen444@gmail.com",
+                GenDer = Gender.Male,
+                FirstName = "Md Sojib",
+                LastName = "Khan",
+                RelationShipStatus =RelationshipStatus.Single,
+                PhoneNumber = "01778553706",
+                IsDeactivate = false,
+                PasswordHash = "dhsgdwe323",
+                EmailConfirmed = true,                
+            }) ;
         }
     }
 }

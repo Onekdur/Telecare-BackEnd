@@ -17,6 +17,7 @@ namespace Telecare.Persistance.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new MemberConfiguration());
+            builder.ApplyConfiguration(new AddressConfiguration());
 
             base.OnModelCreating(builder);
         }

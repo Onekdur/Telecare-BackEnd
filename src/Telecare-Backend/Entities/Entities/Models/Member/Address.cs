@@ -7,8 +7,10 @@ namespace Entities.Models.Member
     {
         [Key]
         public Guid AddressID { get; set; }
-        public Guid PresentAddress { get; set; }
-        public Guid ParmanentAdress { get; set; }
+        public string PresentAddress { get; set; }
+        public string ParmanentAdress { get; set; }
+        [ForeignKey("MemberId")]
+        public Guid MemberId { get; set; }
         public Member Member { get; set; }
     }
 }

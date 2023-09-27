@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Telecare.Persistance.Contexts;
 
@@ -11,9 +12,11 @@ using Telecare.Persistance.Contexts;
 namespace Telecare_Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230927095400_Adding_Address")]
+    partial class Adding_Address
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,13 +34,11 @@ namespace Telecare_Backend.Migrations
                     b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ParmanentAdress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("ParmanentAdress")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("PresentAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("PresentAddress")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AddressID");
 
@@ -45,15 +46,6 @@ namespace Telecare_Backend.Migrations
                         .IsUnique();
 
                     b.ToTable("Address");
-
-                    b.HasData(
-                        new
-                        {
-                            AddressID = new Guid("8c99c516-e901-42c9-8b78-deda48ac0813"),
-                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            ParmanentAdress = "Pabna",
-                            PresentAddress = "Kushtia"
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.Member.Member", b =>
@@ -78,7 +70,7 @@ namespace Telecare_Backend.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("GenDer")
+                    b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -125,23 +117,6 @@ namespace Telecare_Backend.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            ConcurrencyStamp = "aa192ff3-f534-4c43-8d7b-9d76909dd71b",
-                            Email = "mdsojibhosen444@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Md Sojib",
-                            GenDer = "Male",
-                            IsDeactivate = false,
-                            LastName = "Khan",
-                            PasswordHash = "dhsgdwe323",
-                            PhoneNumber = "01778553706",
-                            PhoneNumberConfirmed = false,
-                            RelationShipStatus = "Single"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -278,7 +253,7 @@ namespace Telecare_Backend.Migrations
             modelBuilder.Entity("Entities.Models.Member.Address", b =>
                 {
                     b.HasOne("Entities.Models.Member.Member", "Member")
-                        .WithOne("Addresses")
+                        .WithOne("Address")
                         .HasForeignKey("Entities.Models.Member.Address", "MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -339,7 +314,7 @@ namespace Telecare_Backend.Migrations
 
             modelBuilder.Entity("Entities.Models.Member.Member", b =>
                 {
-                    b.Navigation("Addresses");
+                    b.Navigation("Address");
                 });
 #pragma warning restore 612, 618
         }

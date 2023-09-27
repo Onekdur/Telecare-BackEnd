@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Telecare.Persistance.Contexts;
 
@@ -11,9 +12,11 @@ using Telecare.Persistance.Contexts;
 namespace Telecare_Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230927101507_Adding_Address_1")]
+    partial class Adding_Address_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,15 +48,6 @@ namespace Telecare_Backend.Migrations
                         .IsUnique();
 
                     b.ToTable("Address");
-
-                    b.HasData(
-                        new
-                        {
-                            AddressID = new Guid("8c99c516-e901-42c9-8b78-deda48ac0813"),
-                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            ParmanentAdress = "Pabna",
-                            PresentAddress = "Kushtia"
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.Member.Member", b =>
@@ -129,8 +123,8 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            ConcurrencyStamp = "aa192ff3-f534-4c43-8d7b-9d76909dd71b",
+                            Id = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
+                            ConcurrencyStamp = "893ebd6f-54ff-4d3e-a73b-eac3a9aa09a0",
                             Email = "mdsojibhosen444@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Md Sojib",

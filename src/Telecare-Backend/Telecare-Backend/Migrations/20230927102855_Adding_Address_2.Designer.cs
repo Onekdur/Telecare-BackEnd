@@ -12,8 +12,8 @@ using Telecare.Persistance.Contexts;
 namespace Telecare_Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230927055331_Adding_Address")]
-    partial class Adding_Address
+    [Migration("20230927102855_Adding_Address_2")]
+    partial class Adding_Address_2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,11 +34,13 @@ namespace Telecare_Backend.Migrations
                     b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ParmanentAdress")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ParmanentAdress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PresentAddress")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PresentAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AddressID");
 
@@ -70,7 +72,7 @@ namespace Telecare_Backend.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Gender")
+                    b.Property<string>("GenDer")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -96,6 +98,9 @@ namespace Telecare_Backend.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("RelationShipStatus")
                         .HasColumnType("nvarchar(max)");
 
@@ -114,6 +119,23 @@ namespace Telecare_Backend.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb89"),
+                            ConcurrencyStamp = "ea1bfc20-f162-480e-bd8c-52e41f7c7203",
+                            Email = "mdsojibhosen444@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Md Sojib",
+                            GenDer = "Male",
+                            IsDeactivate = false,
+                            LastName = "Khan",
+                            PasswordHash = "dhsgdwe323",
+                            PhoneNumber = "01778553706",
+                            PhoneNumberConfirmed = false,
+                            RelationShipStatus = "Single"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -250,7 +272,7 @@ namespace Telecare_Backend.Migrations
             modelBuilder.Entity("Entities.Models.Member.Address", b =>
                 {
                     b.HasOne("Entities.Models.Member.Member", "Member")
-                        .WithOne("Address")
+                        .WithOne("Addresses")
                         .HasForeignKey("Entities.Models.Member.Address", "MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -311,7 +333,7 @@ namespace Telecare_Backend.Migrations
 
             modelBuilder.Entity("Entities.Models.Member.Member", b =>
                 {
-                    b.Navigation("Address");
+                    b.Navigation("Addresses");
                 });
 #pragma warning restore 612, 618
         }

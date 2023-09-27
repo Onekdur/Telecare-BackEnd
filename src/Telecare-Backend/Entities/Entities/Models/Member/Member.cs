@@ -7,9 +7,9 @@ namespace Entities.Models.Member
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Gender Gender { get; set; }
+        public Gender GenDer { get; set; }
         public bool IsDeactivate { get; set; }
         public RelationshipStatus? RelationShipStatus { get; set; }
-        public Address? Address { get; set; }
+        public Address? Addresses { get; set; }
     }
 }
