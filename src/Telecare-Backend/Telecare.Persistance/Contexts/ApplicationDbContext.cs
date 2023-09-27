@@ -2,21 +2,25 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Telecare.Application.Contract;
+using Telecare.Persistance.Contexts.Configuration;
 
 namespace Telecare.Persistance.Contexts
 {
     public class ApplicationDbContext : IdentityDbContext<Member>, IApplicationDbContext
     {
-        public ApplicationDbContext()
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
             
         }
 
-        public DbSet<Member> members => Set<Member>();
-
-        public DbSet<TEntity> DbSet<TEntity>() where TEntity : class
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            return Set<TEntity>();
+            builder.ApplyConfiguration(new MemberConfiguration());
+
+            base.OnModelCreating(builder);
         }
+
+        public DbSet<Member> members { get; set; }
+
     }
 }

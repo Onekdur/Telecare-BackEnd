@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Telecare.Application\Telecare.Application.csproj" />
+  </ItemGroup>
+
 </Project>

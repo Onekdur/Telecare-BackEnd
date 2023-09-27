@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Telecare.Persistance.Contexts;
 using Telecare_Backend.Extension_Method;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 //Register Services
 
 builder.Services.SwaggerConfiguration();
+
+//Dbcontext Configuration
+
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("TelecareDb"), 
+        m => m.MigrationsAssembly("Telecare.Api"));
+});
 
 // Add services to the container.
 
