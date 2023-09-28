@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Telecare_Backend.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class addingFriend : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -183,7 +183,7 @@ namespace Telecare_Backend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CoverPhotoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CoverPhotoLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ispresent = table.Column<bool>(type: "bit", nullable: false),
                     MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -223,11 +223,36 @@ namespace Telecare_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Friends",
+                columns: table => new
+                {
+                    FriendId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FriendUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Block = table.Column<bool>(type: "bit", nullable: false),
+                    MessageBlock = table.Column<bool>(type: "bit", nullable: false),
+                    BlockFromMe = table.Column<bool>(type: "bit", nullable: false),
+                    BlockFromFriend = table.Column<bool>(type: "bit", nullable: false),
+                    MessageBlockFromME = table.Column<bool>(type: "bit", nullable: false),
+                    MessageBlockFromFriend = table.Column<bool>(type: "bit", nullable: false),
+                    MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Friends", x => x.FriendId);
+                    table.ForeignKey(
+                        name: "FK_Friends_AspNetUsers_MemberId",
+                        column: x => x.MemberId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProfilePhotos",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    profilePhotoLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    profilePhotoLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsPresent = table.Column<bool>(type: "bit", nullable: false),
                     MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -247,12 +272,12 @@ namespace Telecare_Backend.Migrations
                 columns: table => new
                 {
                     WorkId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ComapnyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ComapnyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     From = table.Column<DateTime>(type: "datetime2", nullable: false),
                     To = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CurrentlyRunning = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -269,20 +294,20 @@ namespace Telecare_Backend.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "GenDer", "IsDeactivate", "LastName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RelationShipStatus", "UserName" },
-                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "842c5d79-23af-45fa-b7c4-0426867e483e", "mdsojibhosen444@gmail.com", true, "Md Sojib", "Male", false, "Khan", null, null, "dhsgdwe323", "01778553706", false, "Single", null });
+                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "79a96460-217b-4c33-bc32-4a7db3fba177", "mdsojibhosen444@gmail.com", true, "Md Sojib", "Male", false, "Khan", null, null, "dhsgdwe323", "01778553706", false, "Single", null });
 
             migrationBuilder.InsertData(
                 table: "Addresses",
                 columns: new[] { "AddressID", "MemberId", "ParmanentAdress", "PresentAddress" },
-                values: new object[] { new Guid("222ee9cb-6068-4fbd-970d-1011c57070f5"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Pabna", "Kushtia" });
+                values: new object[] { new Guid("7786865e-0c25-4625-88bf-672d52a83343"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Pabna", "Kushtia" });
 
             migrationBuilder.InsertData(
                 table: "CoverPhotos",
                 columns: new[] { "Id", "CoverPhotoLink", "Ispresent", "MemberId" },
                 values: new object[,]
                 {
-                    { new Guid("37951fd8-1a40-45f2-af14-66ce37108142"), "www.aws.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") },
-                    { new Guid("b5f0027d-a255-44a3-9b59-2255baf2a375"), "www.colud.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") }
+                    { new Guid("3a0dfaf6-f59e-4472-a02d-6221100a536b"), "www.colud.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") },
+                    { new Guid("7ca17516-956e-4ba6-aa25-bf0f1e5e2a56"), "www.aws.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") }
                 });
 
             migrationBuilder.InsertData(
@@ -290,8 +315,17 @@ namespace Telecare_Backend.Migrations
                 columns: new[] { "EnducationId", "CureentlyRunnig", "Degree", "Description", "From", "MemberId", "SchoolName", "To" },
                 values: new object[,]
                 {
-                    { new Guid("0da6a0eb-71c5-4775-8711-93ed546e54e6"), false, "BA", null, new DateTime(2023, 9, 28, 5, 58, 50, 530, DateTimeKind.Utc).AddTicks(5111), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Rajshahi University", new DateTime(2028, 9, 28, 11, 58, 50, 530, DateTimeKind.Local).AddTicks(5111) },
-                    { new Guid("f7a25f95-e2b3-45af-897f-74d493147165"), false, "Bsc", null, new DateTime(2023, 9, 28, 5, 58, 50, 530, DateTimeKind.Utc).AddTicks(5084), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Islamic University", new DateTime(2028, 9, 28, 11, 58, 50, 530, DateTimeKind.Local).AddTicks(5088) }
+                    { new Guid("b317de3f-8af0-424a-9657-7f2fb78b4a62"), false, "BA", null, new DateTime(2023, 9, 28, 7, 9, 17, 113, DateTimeKind.Utc).AddTicks(7546), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Rajshahi University", new DateTime(2028, 9, 28, 13, 9, 17, 113, DateTimeKind.Local).AddTicks(7547) },
+                    { new Guid("d5c62e9f-bf5b-4e32-8ebc-4f44698e3a3f"), false, "Bsc", null, new DateTime(2023, 9, 28, 7, 9, 17, 113, DateTimeKind.Utc).AddTicks(7521), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Islamic University", new DateTime(2028, 9, 28, 13, 9, 17, 113, DateTimeKind.Local).AddTicks(7526) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Friends",
+                columns: new[] { "FriendId", "Block", "BlockFromFriend", "BlockFromMe", "FriendUserId", "MemberId", "MessageBlock", "MessageBlockFromFriend", "MessageBlockFromME" },
+                values: new object[,]
+                {
+                    { new Guid("1784b75e-7e79-43a1-ae62-db1eb87881ca"), false, false, false, new Guid("f5721880-2cfa-4f3c-b3cf-004418c668d9"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false, false },
+                    { new Guid("50dbdf3b-aacc-4a83-93c1-137519337c33"), false, false, false, new Guid("75dc8da2-4093-49ec-85bf-5c4c507eb68f"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false, false }
                 });
 
             migrationBuilder.InsertData(
@@ -299,8 +333,8 @@ namespace Telecare_Backend.Migrations
                 columns: new[] { "Id", "IsPresent", "MemberId", "profilePhotoLink" },
                 values: new object[,]
                 {
-                    { new Guid("986b0399-5897-47ab-90a9-7a1890c8a802"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.aws.com" },
-                    { new Guid("c8d25726-f3cc-42b2-95bb-e838eb918621"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.colud.com" }
+                    { new Guid("562e3a39-0604-43c7-aa9e-8524d06464cb"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.colud.com" },
+                    { new Guid("86641faa-c0ae-421d-8999-fcfb4ad0fce0"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.aws.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -308,8 +342,8 @@ namespace Telecare_Backend.Migrations
                 columns: new[] { "WorkId", "ComapnyName", "CurrentlyRunning", "Description", "From", "MemberId", "Title", "To" },
                 values: new object[,]
                 {
-                    { new Guid("2b2f9cab-f1b7-440e-864b-2e2df578741d"), "Vivasoft", false, null, new DateTime(2023, 9, 28, 11, 58, 50, 530, DateTimeKind.Local).AddTicks(5973), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), " Software Enginer", new DateTime(2023, 9, 29, 17, 58, 50, 530, DateTimeKind.Local).AddTicks(5973) },
-                    { new Guid("efe6d5f0-b749-4e57-8c4f-a2b18de4782b"), "Devskill", false, null, new DateTime(2023, 9, 28, 11, 58, 50, 530, DateTimeKind.Local).AddTicks(5963), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Intern Software Enginer", new DateTime(2023, 9, 29, 7, 58, 50, 530, DateTimeKind.Local).AddTicks(5964) }
+                    { new Guid("2815cef2-6b3e-4fde-84ea-ef18535662eb"), "Vivasoft", false, "Descriptiom", new DateTime(2023, 9, 28, 13, 9, 17, 113, DateTimeKind.Local).AddTicks(9425), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), " Software Enginer", new DateTime(2023, 9, 29, 19, 9, 17, 113, DateTimeKind.Local).AddTicks(9426) },
+                    { new Guid("c3f8d575-7e6f-4883-931e-3321d2a314b1"), "Devskill", false, "Hi this sojib", new DateTime(2023, 9, 28, 13, 9, 17, 113, DateTimeKind.Local).AddTicks(9414), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Intern Software Enginer", new DateTime(2023, 9, 29, 9, 9, 17, 113, DateTimeKind.Local).AddTicks(9416) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -368,6 +402,11 @@ namespace Telecare_Backend.Migrations
                 column: "MemberId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Friends_MemberId",
+                table: "Friends",
+                column: "MemberId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProfilePhotos_MemberId",
                 table: "ProfilePhotos",
                 column: "MemberId");
@@ -404,6 +443,9 @@ namespace Telecare_Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Educations");
+
+            migrationBuilder.DropTable(
+                name: "Friends");
 
             migrationBuilder.DropTable(
                 name: "ProfilePhotos");

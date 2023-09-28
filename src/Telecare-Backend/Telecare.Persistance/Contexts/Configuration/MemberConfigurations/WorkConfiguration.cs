@@ -1,4 +1,4 @@
-﻿using Entities.Models.Member;
+﻿using Entities.Models.Members;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,6 +15,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
                 Title = "Intern Software Enginer",
                 From = DateTime.Now,
                 To = DateTime.Now.AddHours(20),
+                Description = "Hi this sojib",
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
             },
             new Work()
@@ -24,8 +25,9 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
                 Title = " Software Enginer",
                 From = DateTime.Now,
                 To = DateTime.Now.AddHours(30),
+                Description = "Descriptiom",
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
-            });
+            }) ;
         }
     }
 }

@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models.Friends
 {
-    public class FriendRequest
+    public class SendingRequest
     {
-        public Guid FriendRequestId { get; set; }
-        public Guid RequestUserID { get; set; }
-        public bool IsSeen { get; set; } = false;
+        public Guid SendingRequestId { get; set; }
+        public Guid SendFriendRequestUserID { get; set; }
         [ForeignKey("MemberId")]
         public Guid MemberId { get; set; }
         public Member Member { get; set; }

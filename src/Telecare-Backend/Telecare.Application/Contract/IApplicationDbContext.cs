@@ -1,5 +1,7 @@
-﻿using Entities.Models.Member;
+﻿using Entities.Models.Friends;
+using Entities.Models.Members;
 using Microsoft.EntityFrameworkCore;
+using Telecare.Domain.Entities.Admins;
 
 namespace Telecare.Application.Contract
 {
@@ -11,5 +13,9 @@ namespace Telecare.Application.Contract
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Work> Works { get; set; }
         public DbSet<Education> Educations { get; set; }
+        public DbSet<Friend> Friends { get; set; }
+        public DbSet<FriendRequest> FriendRequests { get; set; }
+        public DbSet<SendingRequest> SendingRequests { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

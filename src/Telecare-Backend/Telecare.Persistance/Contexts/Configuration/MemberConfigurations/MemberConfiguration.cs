@@ -1,4 +1,4 @@
-﻿using Entities.Models.Member;
+﻿using Entities.Models.Members;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Telecare.Domain.Entities.Enum;
