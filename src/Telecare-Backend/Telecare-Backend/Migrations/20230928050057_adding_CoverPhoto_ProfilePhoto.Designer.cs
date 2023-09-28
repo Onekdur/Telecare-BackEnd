@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Telecare.Persistance.Contexts;
 
@@ -11,9 +12,11 @@ using Telecare.Persistance.Contexts;
 namespace Telecare_Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230928050057_adding_CoverPhoto_ProfilePhoto")]
+    partial class adding_CoverPhoto_ProfilePhoto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +52,7 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            AddressID = new Guid("c472792b-6c89-4373-baf0-d4f9d62a0d93"),
+                            AddressID = new Guid("4b7757b8-736d-494d-905f-f2a02e4327c8"),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             ParmanentAdress = "Pabna",
                             PresentAddress = "Kushtia"
@@ -80,16 +83,16 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3fda9983-9047-434f-9070-7b0c09d90c34"),
+                            Id = new Guid("e59396b4-b968-438f-9799-2461c300e515"),
                             CoverPhotoLink = "www.colud.com",
-                            Ispresent = false,
+                            Ispresent = true,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         },
                         new
                         {
-                            Id = new Guid("1de56fe0-983e-4b30-a53c-b5e7924a4d03"),
+                            Id = new Guid("4c7adc07-5bd7-4bf3-894d-0d0674420536"),
                             CoverPhotoLink = "www.aws.com",
-                            Ispresent = false,
+                            Ispresent = true,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         });
                 });
@@ -130,23 +133,23 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            EnducationId = new Guid("e69f1749-2d18-4606-9d79-4a278f8164fe"),
+                            EnducationId = new Guid("844774b3-13c6-4611-824f-4e7ebde6ea7d"),
                             CureentlyRunnig = false,
                             Degree = "Bsc",
-                            From = new DateTime(2023, 9, 28, 5, 10, 27, 872, DateTimeKind.Utc).AddTicks(7638),
+                            From = new DateTime(2023, 9, 28, 5, 0, 57, 511, DateTimeKind.Utc).AddTicks(6174),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             SchoolName = "Islamic University",
-                            To = new DateTime(2028, 9, 28, 11, 10, 27, 872, DateTimeKind.Local).AddTicks(7642)
+                            To = new DateTime(2028, 9, 28, 11, 0, 57, 511, DateTimeKind.Local).AddTicks(6180)
                         },
                         new
                         {
-                            EnducationId = new Guid("5aebc241-5fc1-4cb8-ad59-63a6a3e259fc"),
+                            EnducationId = new Guid("f640c2b5-8b61-4833-add5-91b2c139cf16"),
                             CureentlyRunnig = false,
                             Degree = "BA",
-                            From = new DateTime(2023, 9, 28, 5, 10, 27, 872, DateTimeKind.Utc).AddTicks(7663),
+                            From = new DateTime(2023, 9, 28, 5, 0, 57, 511, DateTimeKind.Utc).AddTicks(6204),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             SchoolName = "Rajshahi University",
-                            To = new DateTime(2028, 9, 28, 11, 10, 27, 872, DateTimeKind.Local).AddTicks(7664)
+                            To = new DateTime(2028, 9, 28, 11, 0, 57, 511, DateTimeKind.Local).AddTicks(6204)
                         });
                 });
 
@@ -224,7 +227,7 @@ namespace Telecare_Backend.Migrations
                         new
                         {
                             Id = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            ConcurrencyStamp = "ae089917-3be8-4134-83f7-286167d01ca4",
+                            ConcurrencyStamp = "24964988-5cfb-4949-82c9-22deff52ef2b",
                             Email = "mdsojibhosen444@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Md Sojib",
@@ -262,75 +265,17 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("927f6d79-55da-4758-8e5d-6135b294c8e4"),
-                            IsPresent = false,
+                            Id = new Guid("00c7a41a-15e7-4552-bcc6-8bc71f1a8b4f"),
+                            IsPresent = true,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             profilePhotoLink = "www.colud.com"
                         },
                         new
                         {
-                            Id = new Guid("1e6e43e4-1ca8-4a45-8916-9cd5aef66845"),
-                            IsPresent = false,
+                            Id = new Guid("20c2bbb6-b97f-42f7-86e2-e6f02e87947d"),
+                            IsPresent = true,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             profilePhotoLink = "www.aws.com"
-                        });
-                });
-
-            modelBuilder.Entity("Entities.Models.Member.Work", b =>
-                {
-                    b.Property<Guid>("WorkId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ComapnyName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("CurrentlyRunning")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("From")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("To")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("WorkId");
-
-                    b.HasIndex("MemberId");
-
-                    b.ToTable("Work");
-
-                    b.HasData(
-                        new
-                        {
-                            WorkId = new Guid("9a31bd0a-3fd7-4d76-b015-43cb9d10370e"),
-                            ComapnyName = "Devskill",
-                            CurrentlyRunning = false,
-                            From = new DateTime(2023, 9, 28, 11, 10, 27, 872, DateTimeKind.Local).AddTicks(8994),
-                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            Title = "Intern Software Enginer",
-                            To = new DateTime(2023, 9, 29, 7, 10, 27, 872, DateTimeKind.Local).AddTicks(8996)
-                        },
-                        new
-                        {
-                            WorkId = new Guid("5cca2ca7-6232-4ac3-80dc-a72c7ca3db92"),
-                            ComapnyName = "Vivasoft",
-                            CurrentlyRunning = false,
-                            From = new DateTime(2023, 9, 28, 11, 10, 27, 872, DateTimeKind.Local).AddTicks(9008),
-                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            Title = " Software Enginer",
-                            To = new DateTime(2023, 9, 29, 17, 10, 27, 872, DateTimeKind.Local).AddTicks(9009)
                         });
                 });
 
@@ -509,17 +454,6 @@ namespace Telecare_Backend.Migrations
                     b.Navigation("Member");
                 });
 
-            modelBuilder.Entity("Entities.Models.Member.Work", b =>
-                {
-                    b.HasOne("Entities.Models.Member.Member", "Member")
-                        .WithMany("Works")
-                        .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Member");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -580,8 +514,6 @@ namespace Telecare_Backend.Migrations
                     b.Navigation("Educations");
 
                     b.Navigation("ProfilePicture");
-
-                    b.Navigation("Works");
                 });
 #pragma warning restore 612, 618
         }

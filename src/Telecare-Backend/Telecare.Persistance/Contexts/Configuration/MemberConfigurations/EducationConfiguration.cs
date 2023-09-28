@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Telecare.Persistance.Contexts.Configuration
+namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
 {
     public class EducationConfiguration : IEntityTypeConfiguration<Education>
     {

@@ -1,4 +1,4 @@
-﻿namespace Entities.Models.Member
+﻿namespace Telecare.Domain.Entities.Enum
 {
     public enum RelationshipStatus
     {

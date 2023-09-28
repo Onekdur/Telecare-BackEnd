@@ -2,13 +2,14 @@
 
 namespace Entities.Models.Member
 {
-    public class CoverPhoto
+    public class ProfilePhoto
     {
         public Guid Id { get; set; }
-        public string? CoverPhotoLink { get; set; }
-        public bool Ispresent { get; set; } = false;
+        public string? profilePhotoLink { get; set; }
+        public bool IsPresent { get; set; } = false;
         [ForeignKey("MemberId")]
         public Guid MemberId { get; set; }
         public Member Member { get; set; }
+
     }
 }

@@ -1,8 +1,9 @@
 ﻿using Entities.Models.Member;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Telecare.Domain.Entities.Enum;
 
-namespace Telecare.Persistance.Contexts.Configuration
+namespace Telecare.Persistance.Contexts.Configuration.MemberConfigurations
 {
     public class MemberConfiguration : IEntityTypeConfiguration<Member>
     {
@@ -39,12 +40,12 @@ namespace Telecare.Persistance.Contexts.Configuration
                 GenDer = Gender.Male,
                 FirstName = "Md Sojib",
                 LastName = "Khan",
-                RelationShipStatus =RelationshipStatus.Single,
+                RelationShipStatus = RelationshipStatus.Single,
                 PhoneNumber = "01778553706",
                 IsDeactivate = false,
                 PasswordHash = "dhsgdwe323",
-                EmailConfirmed = true,                
-            }) ;
+                EmailConfirmed = true,
+            });
         }
     }
 }
