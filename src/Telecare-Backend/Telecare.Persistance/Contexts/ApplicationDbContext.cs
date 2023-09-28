@@ -18,6 +18,7 @@ namespace Telecare.Persistance.Contexts
         {
             builder.ApplyConfiguration(new MemberConfiguration());
             builder.ApplyConfiguration(new AddressConfiguration());
+            builder.ApplyConfiguration(new EducationConfiguration());
 
             base.OnModelCreating(builder);
         }

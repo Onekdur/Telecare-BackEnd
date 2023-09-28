@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models.Member
 {
@@ -8,8 +7,9 @@ namespace Entities.Models.Member
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender GenDer { get; set; }
-        public bool IsDeactivate { get; set; }
-        public RelationshipStatus? RelationShipStatus { get; set; }
+        public bool IsDeactivate { get; set; } = false;
+        public RelationshipStatus? RelationShipStatus { get; set; } = RelationshipStatus.Single;
         public Address? Addresses { get; set; }
+        public List<Education>? Educations { get; set; }
     }
 }

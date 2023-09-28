@@ -1,14 +1,20 @@
-﻿namespace Entities.Models.Member
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Entities.Models.Member
 {
     public class Education
     {
-        public Guid Id { get; set; }
-        public string SchoolName { get; set; }
-        public string Degree { get; set; }
-        public string From { get; set; }
-        public string To { get; set; }
-        public bool CureentlyRunnig { get; set; }
-        public string Description { get; set; }
+        [Key]
+        public Guid EnducationId { get; set; }
+        public string? SchoolName { get; set; }
+        public string? Degree { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
+        public bool CureentlyRunnig { get; set; } = false;
+        public string? Description { get; set; }
+        [ForeignKey("MemberId")]
+        public Guid MemberId { get; set; }
         public Member Member { get; set; }
     }
 }
