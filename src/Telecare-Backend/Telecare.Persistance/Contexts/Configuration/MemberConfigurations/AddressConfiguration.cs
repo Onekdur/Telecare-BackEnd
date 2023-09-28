@@ -10,6 +10,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
         {
             builder.HasData(new Address()
             {
+                
                 AddressID = Guid.NewGuid(),
                 ParmanentAdress = "Pabna",
                 PresentAddress = "Kushtia",

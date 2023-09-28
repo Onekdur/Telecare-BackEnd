@@ -27,7 +27,11 @@ namespace Telecare.Persistance.Contexts
             base.OnModelCreating(builder);
         }
 
-        public DbSet<Member> members { get; set; }
-
+        public DbSet<Member> Members { get; set; }
+        public DbSet<CoverPhoto> CoverPhotos { get; set; }
+        public DbSet<ProfilePhoto> ProfilePhotos { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Work> Works { get; set; }
+        public DbSet<Education> Educations { get; set; }
     }
 }

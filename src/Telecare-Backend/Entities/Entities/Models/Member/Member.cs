@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 using Telecare.Domain.Entities.Enum;
 
 namespace Entities.Models.Member
