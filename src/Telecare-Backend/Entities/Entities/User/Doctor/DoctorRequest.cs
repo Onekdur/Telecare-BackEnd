@@ -10,7 +10,7 @@ namespace Telecare.Domain.Entities.User.Doctor
         public string? Experties { get; set; }
         public string? HscCertificate { get; set; }
         public string? SSCCertificate { get; set; }
-        public string MedicalSChoolCertificate { get; set; }
+        public string MedicalSchoolCertificate { get; set; }
         public string MedicalIdCard { get; set; }
         public bool Accept { get; set; } = false;
         public bool Pending { get; set; } = true;

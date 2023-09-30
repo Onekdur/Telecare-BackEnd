@@ -7,8 +7,8 @@ namespace Entities.Models.Friends
     public class Friend
     {
         [Key]
-        public Guid FriendId{ get; set; }
-        public Guid FriendUserId { get; set; }
+        public Guid Id{ get; set; }
+        public Guid FriendId { get; set; }
         public bool Block { get; set; } = false;
         public bool MessageBlock { get; set; } = false;
         public bool BlockFromMe { get; set; } = false;

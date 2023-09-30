@@ -10,7 +10,7 @@ namespace Telecare.Persistance.Contexts.Configuration.AdminConfigurations
         {
             builder.HasData(new Admin()
             {
-                AdminId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
             });
         }

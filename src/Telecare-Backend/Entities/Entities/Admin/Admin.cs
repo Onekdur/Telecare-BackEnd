@@ -5,7 +5,7 @@ namespace Telecare.Domain.Entities.Admins
 {
     public class Admin
     {
-        public Guid AdminId { get; set; }
+        public Guid Id { get; set; }
         public bool CEO { get; set; } = false;
         public bool SuperAdmin { get; set; } = false;
         public bool GeneralAdmin { get; set; } = false;

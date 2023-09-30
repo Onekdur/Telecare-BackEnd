@@ -6,7 +6,7 @@ namespace Entities.Models.Members
     public class Education
     {
         [Key]
-        public Guid EnducationId { get; set; }
+        public Guid Id { get; set; }
         public string? SchoolName { get; set; }
         public string? Degree { get; set; }
         public DateTime From { get; set; }

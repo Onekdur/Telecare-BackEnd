@@ -11,13 +11,13 @@ namespace Telecare.Persistance.Contexts.Configuration.FriendsConfigurions
             builder.HasData(new Friend()
             {
                 FriendId = Guid.NewGuid(),
-                FriendUserId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
             },
             new Friend()
             {
                 FriendId = Guid.NewGuid(),
-                FriendUserId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
             });
         }

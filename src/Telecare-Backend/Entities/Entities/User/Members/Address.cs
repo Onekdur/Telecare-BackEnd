@@ -6,7 +6,7 @@ namespace Entities.Models.Members
     public class Address
     {
         [Key]
-        public Guid AddressID { get; set; }
+        public Guid Id { get; set; }
         public string PresentAddress { get; set; }
         public string ParmanentAdress { get; set; }
         [ForeignKey("MemberId")]

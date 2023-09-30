@@ -7,7 +7,7 @@ namespace Entities.Models.Members
     public class Work
     {
         [Key]
-        public Guid WorkId { get; set; }
+        public Guid Id { get; set; }
         public string? Title { get; set; }
         public string? ComapnyName { get; set; }
         public DateTime From { get; set; }

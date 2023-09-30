@@ -10,7 +10,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
         {
             builder.HasData(new Education()
             {
-                EnducationId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 SchoolName = "Islamic University",
                 Degree = "Bsc",
                 From = DateTime.UtcNow,
@@ -19,7 +19,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
             },
             new Education()
             {
-                EnducationId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 SchoolName = "Rajshahi University",
                 Degree = "BA",
                 From = DateTime.UtcNow,

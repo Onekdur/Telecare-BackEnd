@@ -10,7 +10,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
         {
             builder.HasData(new Work()
             {
-                WorkId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 ComapnyName = "Devskill",
                 Title = "Intern Software Enginer",
                 From = DateTime.Now,
@@ -20,7 +20,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
             },
             new Work()
             {
-                WorkId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 ComapnyName = "Vivasoft",
                 Title = " Software Enginer",
                 From = DateTime.Now,

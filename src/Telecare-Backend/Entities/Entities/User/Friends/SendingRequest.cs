@@ -5,8 +5,8 @@ namespace Entities.Models.Friends
 {
     public class SendingRequest
     {
-        public Guid SendingRequestId { get; set; }
-        public Guid SendFriendRequestUserID { get; set; }
+        public Guid Id { get; set; }
+        public Guid SendFriendRequestId { get; set; }
         [ForeignKey("MemberId")]
         public Guid MemberId { get; set; }
         public Member Member { get; set; }
