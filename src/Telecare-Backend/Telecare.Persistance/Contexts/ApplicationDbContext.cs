@@ -33,7 +33,8 @@ namespace Telecare.Persistance.Contexts
             builder.ApplyConfiguration(new FriendRequestConfiguration());
             builder.ApplyConfiguration(new SendingRequestConfigurtion());
             builder.ApplyConfiguration(new AdminConfiguration());
-            builder.ApplyConfiguration(new DoctorRequestConfiguration());
+            builder.ApplyConfiguration(new DoctorConfiguration());
+            //builder.ApplyConfiguration(new DoctorRequestConfiguration());
             builder.ApplyConfiguration(new DoctorFollowerConfiguration());
 
             base.OnModelCreating(builder);
@@ -49,7 +50,8 @@ namespace Telecare.Persistance.Contexts
         public DbSet<FriendRequest> FriendRequests { get ; set ; }
         public DbSet<SendingRequest> SendingRequests { get ; set ; }
         public DbSet<Admin> Admins { get ; set ; }
-        public DbSet<DoctorRequest> DoctorRequests { get ; set ; }
+        public DbSet<Doctor> Doctors { get ; set ; }
+        //public DbSet<DoctorRequest> DoctorRequests { get ; set ; }
         public DbSet<DoctorFollower> DoctorFollowers { get ; set ; }
     }
 }
