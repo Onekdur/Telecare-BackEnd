@@ -2,6 +2,7 @@
 using Entities.Models.Members;
 using Microsoft.EntityFrameworkCore;
 using Telecare.Domain.Entities.Admins;
+using Telecare.Domain.Entities.User.Doctor;
 
 namespace Telecare.Application.Contract
 {
@@ -17,5 +18,6 @@ namespace Telecare.Application.Contract
         public DbSet<FriendRequest> FriendRequests { get; set; }
         public DbSet<SendingRequest> SendingRequests { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<DoctorRequest>  DoctorRequests{ get; set; }
     }
 }

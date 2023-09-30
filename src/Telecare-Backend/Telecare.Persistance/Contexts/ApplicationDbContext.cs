@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Telecare.Application.Contract;
 using Telecare.Domain.Entities.Admins;
+using Telecare.Domain.Entities.User.Doctor;
 using Telecare.Persistance.Contexts.Configuration.AdminConfigurations;
 using Telecare.Persistance.Contexts.Configuration.FriendsConfigurions;
 using Telecare.Persistance.Contexts.Configuration.MemberConfiguration;
@@ -45,5 +46,6 @@ namespace Telecare.Persistance.Contexts
         public DbSet<FriendRequest> FriendRequests { get ; set ; }
         public DbSet<SendingRequest> SendingRequests { get ; set ; }
         public DbSet<Admin> Admins { get ; set ; }
+        public DbSet<DoctorRequest> DoctorRequests { get ; set ; }
     }
 }

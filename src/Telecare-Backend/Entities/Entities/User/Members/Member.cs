@@ -2,6 +2,7 @@
 using Telecare.Domain.Entities.Enum;
 using Entities.Models.Friends;
 using Telecare.Domain.Entities.Admins;
+using Telecare.Domain.Entities.User.Doctor;
 
 namespace Entities.Models.Members
 {
@@ -21,5 +22,6 @@ namespace Entities.Models.Members
         public List<Friend> Friends { get; set; }
         public List<FriendRequest> FriendRequests { get; set; }
         public List<SendingRequest> SendingRequests { get; set; }
+        public List<DoctorRequest> DoctorRequests { get; set; }
     }
 }
