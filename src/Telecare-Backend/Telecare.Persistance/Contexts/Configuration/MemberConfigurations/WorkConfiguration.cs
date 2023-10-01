@@ -16,7 +16,8 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
                 From = DateTime.Now,
                 To = DateTime.Now.AddHours(20),
                 Description = "Hi this sojib",
-                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
+                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
+                DoctorId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB85")
             },
             new Work()
             {
@@ -26,8 +27,9 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
                 From = DateTime.Now,
                 To = DateTime.Now.AddHours(30),
                 Description = "Descriptiom",
-                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
-            }) ;
+                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
+                DoctorId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB85")
+            });
         }
     }
 }

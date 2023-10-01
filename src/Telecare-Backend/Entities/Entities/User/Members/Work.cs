@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Telecare.Domain.Entities.User.Doctor;
 
 namespace Entities.Models.Members
 {
@@ -14,8 +16,13 @@ namespace Entities.Models.Members
         public DateTime To { get; set; }
         public bool CurrentlyRunning { get; set; } = false;
         public string Description { get; set; }
-        [ForeignKey("MemberID")]
         public Guid MemberId { get; set; }
+        //[ForeignKey("MemberId")]
+        //[DeleteBehavior(DeleteBehavior.Cascade)]
         public Member Member { get; set; }
+        public Guid? DoctorId { get; set; }
+        //[ForeignKey("DoctorId")]
+        //[DeleteBehavior(DeleteBehavior.Cascade)]
+        public Doctor Doctor { get; set; }
     }
 }

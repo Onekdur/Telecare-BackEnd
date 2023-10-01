@@ -23,7 +23,5 @@ namespace Entities.Models.Members
         public List<FriendRequest> FriendRequests { get; set; }
         public List<SendingRequest> SendingRequests { get; set; }
         public List<DoctorRequest> DoctorRequests { get; set; }
-        public Doctor Doctor { get; set; }
-        public DoctorPatient DoctorPatient { get; set; }
     }
 }

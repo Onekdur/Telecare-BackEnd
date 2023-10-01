@@ -16,12 +16,13 @@ namespace Telecare.Domain.Entities.User.Doctor
         public bool IsDeactivate { get; set; } = false;
         public bool IsBlock { get; set; } = false;
         public bool isActive { get; set; } = false;
-        [ForeignKey("MemberId")]
         public Guid MemberId { get; set; }
+        [ForeignKey("MemberId")]
         public Member Member { get; set; }
-        //public List<DoctorPatient> DoctorPatients { get; set; }
+        public List<DoctorPatient> DoctorPatients { get; set; }
         public List<DoctorFollower> DoctorFollowers { get; set; }
-        public List<DoctorComment> DoctorComments { get; set; }
+        public List<Work> Works { get; set; }
+        //public List<DoctorComment> DoctorComments { get; set; }
         //public List<DoctorPatientComplain> DoctorPatientComplains { get; set; }
     }
 }
