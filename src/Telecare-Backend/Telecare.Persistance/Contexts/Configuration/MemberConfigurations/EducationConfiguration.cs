@@ -15,7 +15,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
                 Degree = "Bsc",
                 From = DateTime.UtcNow,
                 To = DateTime.Now.AddYears(5),
-                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
+                UserId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
             },
             new Education()
             {
@@ -24,7 +24,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfiguration
                 Degree = "BA",
                 From = DateTime.UtcNow,
                 To = DateTime.Now.AddYears(5),
-                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
+                UserId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB85")
             });
         }
     }

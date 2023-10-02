@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Telecare.Domain.Entities.User.Doctor;
 
 namespace Entities.Models.Members
 {
@@ -13,8 +14,8 @@ namespace Entities.Models.Members
         public DateTime To { get; set; }
         public bool CureentlyRunnig { get; set; } = false;
         public string? Description { get; set; }
-        [ForeignKey("MemberId")]
-        public Guid MemberId { get; set; }
-        public Member Member { get; set; }
+        public bool isPrivate { get; set; }
+        public bool isDelete { get; set; }
+        public Guid UserId { get; set; }
     }
 }

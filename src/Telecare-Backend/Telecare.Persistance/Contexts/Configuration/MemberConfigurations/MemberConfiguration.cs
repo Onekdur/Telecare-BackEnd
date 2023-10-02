@@ -46,11 +46,6 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfigurations
                 PasswordHash = "dhsgdwe323",
                 EmailConfirmed = true,
             });
-
-            builder.HasMany(e => e.Works)
-                .WithOne(e => e.Member)
-                .HasForeignKey(e => e.MemberId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

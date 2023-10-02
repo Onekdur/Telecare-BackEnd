@@ -22,7 +22,6 @@ namespace Telecare.Domain.Entities.User.Doctor
         public List<DoctorPatient> DoctorPatients { get; set; }
         public List<DoctorFollower> DoctorFollowers { get; set; }
         public List<Work> Works { get; set; }
-        //public List<DoctorComment> DoctorComments { get; set; }
-        //public List<DoctorPatientComplain> DoctorPatientComplains { get; set; }
+        public List<Education> Educations { get; set; }
     }
 }

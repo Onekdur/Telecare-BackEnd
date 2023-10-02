@@ -16,13 +16,8 @@ namespace Entities.Models.Members
         public DateTime To { get; set; }
         public bool CurrentlyRunning { get; set; } = false;
         public string Description { get; set; }
-        public Guid MemberId { get; set; }
-        //[ForeignKey("MemberId")]
-        //[DeleteBehavior(DeleteBehavior.Cascade)]
-        public Member Member { get; set; }
-        public Guid? DoctorId { get; set; }
-        //[ForeignKey("DoctorId")]
-        //[DeleteBehavior(DeleteBehavior.Cascade)]
-        public Doctor Doctor { get; set; }
+        public bool IsPrivate { get; set; } = false;
+        public bool IsDelete { get; set; } = false;
+        public Guid UserId { get; set; }
     }
 }

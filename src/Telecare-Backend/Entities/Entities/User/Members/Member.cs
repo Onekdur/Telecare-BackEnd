@@ -15,6 +15,7 @@ namespace Entities.Models.Members
         public RelationshipStatus? RelationShipStatus { get; set; } = RelationshipStatus.Single;
         public Address Addresses { get; set; }
         public Admin Admins { get; set; }
+        public Doctor Doctor { get; set; }
         public List<ProfilePhoto> ProfilePicture { get; set; }
         public List<CoverPhoto> CoverPicture { get; set; }
         public List<Education> Educations { get; set; }
