@@ -8,7 +8,7 @@ namespace Telecare.Domain.Entities.User.Doctor
     {
         [Key]
         public Guid Id { get; set; }
-        public Guid? PatientId { get; set; }
+        public Guid? PatientId { get; set; } 
         [ForeignKey("PatientId")]
         public Member Member { get; set; }
         public Guid? DoctorId { get; set; }
