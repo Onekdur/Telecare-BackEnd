@@ -22,6 +22,7 @@ namespace Telecare.Application.Contract
         public DbSet<DoctorRequest>  DoctorRequests { get; set; }
         public DbSet<DoctorFollower>  DoctorFollowers { get; set; }
         public DbSet<DoctorPatient>  DoctorPatients { get; set; }
-       // public DbSet<DoctorComment> DoctorComments { get; set; }
+        public DbSet<DoctorComment> DoctorComments { get; set; }
+        public DbSet<DoctorPatientComplain> PatientComplains { get; set; }
     }
 }

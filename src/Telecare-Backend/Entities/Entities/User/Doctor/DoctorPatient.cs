@@ -14,6 +14,5 @@ namespace Telecare.Domain.Entities.User.Doctor
         public Guid? DoctorId { get; set; }
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }
-        //public DoctorComment DoctorComment { get; set; }
     }
 }
