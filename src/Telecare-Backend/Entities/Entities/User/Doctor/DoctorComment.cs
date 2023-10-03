@@ -1,16 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Entities.Models.Members;
 
 namespace Telecare.Domain.Entities.User.Doctor
 {
     public class DoctorComment
     {
-        [Key]
         public Guid Id { get; set; }
         public string Comment { get; set; }
-        public Guid PatientId { get; set; }
-        public Guid? DoctorId { get; set; }
-        [ForeignKey("DoctorId")]
+        public DateTime Time { get; set; }
+        public Guid MemberId { get; set; }
+        public Member Member { get; set; }
+        public Guid DoctorId { get; set; }
         public Doctor Doctor { get; set; }
     }
 }
