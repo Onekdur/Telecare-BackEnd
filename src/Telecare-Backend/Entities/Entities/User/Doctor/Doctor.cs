@@ -16,6 +16,7 @@ namespace Telecare.Domain.Entities.User.Doctor
         public bool IsDeactivate { get; set; } = false;
         public bool IsBlock { get; set; } = false;
         public bool isActive { get; set; } = false;
+        public DoctorProfile DoctorProfile { get; set; }
         public List<DoctorPatient> DoctorPatients { get; set; }
         public List<DoctorFollower> DoctorFollowers { get; set; }
         public List<Work> Works { get; set; }

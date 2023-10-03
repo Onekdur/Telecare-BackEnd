@@ -39,6 +39,7 @@ namespace Telecare.Persistance.Contexts
             builder.ApplyConfiguration(new DoctorPatientConfiguration());
             builder.ApplyConfiguration(new DoctorCommentConfiguration());
             builder.ApplyConfiguration(new DoctorComplainConfiguration());
+            builder.ApplyConfiguration(new DoctorProfileConfiguration());
 
             base.OnModelCreating(builder);
         }
@@ -59,5 +60,6 @@ namespace Telecare.Persistance.Contexts
         public DbSet<DoctorPatient> DoctorPatients { get ; set ; }
         public DbSet<DoctorComment> DoctorComments { get; set; }
         public DbSet<DoctorPatientComplain> PatientComplains { get; set; }
+        public DbSet<DoctorProfile> DoctorProfiles { get; set; }
     }
 }

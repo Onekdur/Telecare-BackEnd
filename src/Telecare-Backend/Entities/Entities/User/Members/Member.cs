@@ -14,6 +14,7 @@ namespace Entities.Models.Members
         public bool IsDeactivate { get; set; } = false;
         public RelationshipStatus? RelationShipStatus { get; set; } = RelationshipStatus.Single;
         public Admin Admin { get; set; }
+        public DoctorProfile DoctorProfile { get; set; }
         public List<ProfilePhoto> ProfilePicture { get; set; }
         public List<CoverPhoto> CoverPicture { get; set; }
         public List<Education> Educations { get; set; }
