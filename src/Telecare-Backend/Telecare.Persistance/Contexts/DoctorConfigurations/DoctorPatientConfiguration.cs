@@ -8,11 +8,11 @@ namespace Telecare.Persistance.Contexts.DoctorConfigurations
     {
         public void Configure(EntityTypeBuilder<DoctorPatient> builder)
         {
-            builder.HasKey(e => new { e.MemberId, e.DoctorId });
+            builder.HasKey(e => e.Id);
 
             builder.HasOne(e => e.Member)
                 .WithMany(e => e.DoctorPatients)
-                .HasForeignKey(e => e.MemberId)
+                .HasForeignKey(e => e.PatientId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(e => e.Doctor)
@@ -22,7 +22,8 @@ namespace Telecare.Persistance.Contexts.DoctorConfigurations
 
             builder.HasData(new DoctorPatient()
             {
-                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
+                Id = Guid.NewGuid(),
+                PatientId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
                 DoctorId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB85")
             });
         }

@@ -25,5 +25,7 @@ namespace Entities.Models.Members
         public List<DoctorRequest> DoctorRequests { get; set; }
         public List<DoctorPatient> DoctorPatients { get; set; }
         public DoctorComment DoctorComment { get; set; }
+        public List<DoctorFollower> DoctorFollowers { get; set; }
+        public List<DoctorPatientComplain> DoctorPatientComplains { get; set; }
     }
 }

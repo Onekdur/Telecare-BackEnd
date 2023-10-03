@@ -8,11 +8,10 @@ namespace Telecare.Persistance.Contexts.DoctorConfigurations
     {
         public void Configure(EntityTypeBuilder<DoctorProfile> builder)
         {
-            builder.HasKey(e => e.Id);
+            builder.HasKey(e => new {e.MemberId,e.DoctorID});
 
             builder.HasData(new DoctorProfile()
             {
-                Id = Guid.NewGuid(),
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
                 DoctorID = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB85")
             });

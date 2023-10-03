@@ -38,7 +38,7 @@ namespace Telecare.Persistance.Contexts
             builder.ApplyConfiguration(new DoctorFollowerConfiguration());
             builder.ApplyConfiguration(new DoctorPatientConfiguration());
             builder.ApplyConfiguration(new DoctorCommentConfiguration());
-            builder.ApplyConfiguration(new DoctorComplainConfiguration());
+            builder.ApplyConfiguration(new DoctorPatientComplainConfiguration());
             builder.ApplyConfiguration(new DoctorProfileConfiguration());
 
             base.OnModelCreating(builder);

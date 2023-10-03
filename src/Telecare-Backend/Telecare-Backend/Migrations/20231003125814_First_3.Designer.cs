@@ -12,8 +12,8 @@ using Telecare.Persistance.Contexts;
 namespace Telecare_Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231003051627_Doctor_patient")]
-    partial class Doctor_patient
+    [Migration("20231003125814_First_3")]
+    partial class First_3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,11 +64,11 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6fe11252-1fd1-4a94-845f-d118e83345cf"),
+                            Id = new Guid("72da4bff-1e7a-4afb-ae5a-86f33db8c88d"),
                             Block = false,
                             BlockFromFriend = false,
                             BlockFromMe = false,
-                            FriendId = new Guid("eca144c9-6c83-4067-9334-780491cd1a47"),
+                            FriendId = new Guid("df3e8c77-5dec-4681-be45-008e2f6b646c"),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             MessageBlock = false,
                             MessageBlockFromFriend = false,
@@ -76,11 +76,11 @@ namespace Telecare_Backend.Migrations
                         },
                         new
                         {
-                            Id = new Guid("74316cad-9e2e-45ce-bfa7-6f60aa77be59"),
+                            Id = new Guid("8cb2b77a-4293-40e1-ba84-481a4f8acd18"),
                             Block = false,
                             BlockFromFriend = false,
                             BlockFromMe = false,
-                            FriendId = new Guid("71ad41d7-92ae-430c-b465-01d6902e0529"),
+                            FriendId = new Guid("e41c3a0a-f0ea-4b26-9c4e-d1120bd7719b"),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             MessageBlock = false,
                             MessageBlockFromFriend = false,
@@ -112,10 +112,10 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("576d20bf-d13b-4dc5-94fc-a24bae36005c"),
+                            Id = new Guid("730e2b9f-fcec-46d3-8dc2-8859f9142e4f"),
                             IsSeen = false,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            RequestId = new Guid("d132fff2-dd40-4213-894f-d7c079dea26a")
+                            RequestId = new Guid("02574734-437f-496a-9756-1623bf0da18a")
                         });
                 });
 
@@ -140,9 +140,9 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("11e3107c-484c-4818-a1dd-5da60c29e5be"),
+                            Id = new Guid("ae03376d-935a-4001-86d3-64d6bc3ae857"),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            SendFriendRequestId = new Guid("9d758fee-9bf3-4514-8cca-ebec64bc841c")
+                            SendFriendRequestId = new Guid("62b2677e-1ffb-4444-818b-4942281fc12d")
                         });
                 });
 
@@ -172,7 +172,7 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b6f8204f-a5a4-48fb-86d7-33729aab045f"),
+                            Id = new Guid("a6b50b5c-3443-4800-bed3-3e338f9b0f46"),
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             ParmanentAdress = "Pabna",
                             PresentAddress = "Kushtia"
@@ -204,14 +204,14 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("be5e9a29-1cb5-4c85-b195-4a9187fb5f80"),
+                            Id = new Guid("146cf6f2-ec91-40c0-9f17-1d224ae4a00f"),
                             CoverPhotoLink = "www.colud.com",
                             Ispresent = false,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         },
                         new
                         {
-                            Id = new Guid("ccc2494f-6238-4dda-b460-1ed31b00f6e2"),
+                            Id = new Guid("edd4e01f-a991-40ff-a523-ff0ba605225a"),
                             CoverPhotoLink = "www.aws.com",
                             Ispresent = false,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
@@ -268,24 +268,24 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("11bc8b7d-2b97-4066-8f65-40f06bf476db"),
+                            Id = new Guid("202b1097-9cb9-42a8-a1e7-ed1101d962fe"),
                             CureentlyRunnig = false,
                             Degree = "Bsc",
-                            From = new DateTime(2023, 10, 3, 5, 16, 26, 789, DateTimeKind.Utc).AddTicks(506),
+                            From = new DateTime(2023, 10, 3, 12, 58, 14, 119, DateTimeKind.Utc).AddTicks(387),
                             SchoolName = "Islamic University",
-                            To = new DateTime(2028, 10, 3, 11, 16, 26, 789, DateTimeKind.Local).AddTicks(512),
+                            To = new DateTime(2028, 10, 3, 18, 58, 14, 119, DateTimeKind.Local).AddTicks(393),
                             UserId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             isDelete = false,
                             isPrivate = false
                         },
                         new
                         {
-                            Id = new Guid("f72eacbf-0345-4dcb-b11a-991f9990bad7"),
+                            Id = new Guid("6c9ba88a-156a-48c7-af3d-c12cae614bba"),
                             CureentlyRunnig = false,
                             Degree = "BA",
-                            From = new DateTime(2023, 10, 3, 5, 16, 26, 789, DateTimeKind.Utc).AddTicks(533),
+                            From = new DateTime(2023, 10, 3, 12, 58, 14, 119, DateTimeKind.Utc).AddTicks(416),
                             SchoolName = "Rajshahi University",
-                            To = new DateTime(2028, 10, 3, 11, 16, 26, 789, DateTimeKind.Local).AddTicks(534),
+                            To = new DateTime(2028, 10, 3, 18, 58, 14, 119, DateTimeKind.Local).AddTicks(417),
                             UserId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"),
                             isDelete = false,
                             isPrivate = false
@@ -366,7 +366,7 @@ namespace Telecare_Backend.Migrations
                         new
                         {
                             Id = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            ConcurrencyStamp = "3f3a34e2-8532-4bc7-a198-87131a61c784",
+                            ConcurrencyStamp = "9fcb7488-2a4d-493b-952b-e8bd52d3e5f7",
                             Email = "mdsojibhosen444@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Md Sojib",
@@ -405,14 +405,14 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f2f46e56-e700-4f35-992c-facc4d247380"),
+                            Id = new Guid("eaf5ac49-7944-4eb3-a9e2-c685aa27c7e5"),
                             IsPresent = false,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             profilePhotoLink = "www.colud.com"
                         },
                         new
                         {
-                            Id = new Guid("806f066f-efaf-410a-afd9-82258a4eca02"),
+                            Id = new Guid("10513ce1-7cc4-4958-b15d-87b037f15bda"),
                             IsPresent = false,
                             MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
                             profilePhotoLink = "www.aws.com"
@@ -470,28 +470,28 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("14e4936e-6804-472b-b4e2-b87167d52788"),
+                            Id = new Guid("ffa793b5-1f2a-4aac-b581-38c3bb35d1c3"),
                             ComapnyName = "Devskill",
                             CurrentlyRunning = false,
                             Description = "Hi this sojib",
-                            From = new DateTime(2023, 10, 3, 11, 16, 26, 789, DateTimeKind.Local).AddTicks(1446),
+                            From = new DateTime(2023, 10, 3, 18, 58, 14, 119, DateTimeKind.Local).AddTicks(2264),
                             IsDelete = false,
                             IsPrivate = false,
                             Title = "Intern Software Enginer",
-                            To = new DateTime(2023, 10, 4, 7, 16, 26, 789, DateTimeKind.Local).AddTicks(1448),
+                            To = new DateTime(2023, 10, 4, 14, 58, 14, 119, DateTimeKind.Local).AddTicks(2268),
                             UserId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         },
                         new
                         {
-                            Id = new Guid("051edc91-51cc-4fd9-8dd9-3b0727d19e4f"),
+                            Id = new Guid("8ebf13b3-64d6-40bd-8e90-fcc87a9bf121"),
                             ComapnyName = "Vivasoft",
                             CurrentlyRunning = false,
                             Description = "Descriptiom",
-                            From = new DateTime(2023, 10, 3, 11, 16, 26, 789, DateTimeKind.Local).AddTicks(1486),
+                            From = new DateTime(2023, 10, 3, 18, 58, 14, 119, DateTimeKind.Local).AddTicks(2276),
                             IsDelete = false,
                             IsPrivate = false,
                             Title = " Software Enginer",
-                            To = new DateTime(2023, 10, 4, 17, 16, 26, 789, DateTimeKind.Local).AddTicks(1487),
+                            To = new DateTime(2023, 10, 5, 0, 58, 14, 119, DateTimeKind.Local).AddTicks(2277),
                             UserId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         });
                 });
@@ -633,32 +633,25 @@ namespace Telecare_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("CEO")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("GeneralAdmin")
-                        .HasColumnType("bit");
+                    b.Property<int>("AdminType")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("SuperAdmin")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("MemberId");
+                    b.HasIndex("MemberId")
+                        .IsUnique();
 
                     b.ToTable("Admins");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d0771ae1-7b9e-446b-ac77-a6380440be63"),
-                            CEO = false,
-                            GeneralAdmin = false,
-                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            SuperAdmin = false
+                            Id = new Guid("913a77d4-e903-437a-a00f-a78cee2edace"),
+                            AdminType = 0,
+                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         });
                 });
 
@@ -725,26 +718,32 @@ namespace Telecare_Backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("DoctorId")
-                        .IsRequired()
+                    b.Property<Guid>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PatientId")
+                    b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
+
+                    b.HasIndex("MemberId")
+                        .IsUnique();
 
                     b.ToTable("DoctorComments");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d23e9bb1-0648-494a-82f6-5973be064707"),
+                            Id = new Guid("7ac677c5-a8c3-48a8-af72-ae0928a1eca5"),
                             Comment = "Doctor is very good at surgery ",
                             DoctorId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"),
-                            PatientId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
+                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
+                            Time = new DateTime(2023, 10, 3, 12, 58, 14, 121, DateTimeKind.Utc).AddTicks(253)
                         });
                 });
 
@@ -764,36 +763,45 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("DoctorId");
 
+                    b.HasIndex("FollowerId");
+
                     b.ToTable("DoctorFollowers");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("44f1c367-69cd-4aef-a11f-8cf291bc12f7"),
+                            Id = new Guid("0f9a2718-8c12-4e94-afed-a6dc64044048"),
                             DoctorId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"),
-                            FollowerId = new Guid("315b9967-1466-4381-a05e-44266af0be90")
+                            FollowerId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         });
                 });
 
             modelBuilder.Entity("Telecare.Domain.Entities.User.Doctor.DoctorPatient", b =>
                 {
-                    b.Property<Guid>("MemberId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("MemberId", "DoctorId");
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
 
                     b.ToTable("DoctorPatients");
 
                     b.HasData(
                         new
                         {
-                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"),
-                            DoctorId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85")
+                            Id = new Guid("7aa2914f-b6c7-4ad9-afdf-7b1acadc1eb3"),
+                            DoctorId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"),
+                            PatientId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         });
                 });
 
@@ -819,14 +827,36 @@ namespace Telecare_Backend.Migrations
                     b.HasIndex("DoctorId");
 
                     b.ToTable("PatientComplains");
+                });
+
+            modelBuilder.Entity("Telecare.Domain.Entities.User.Doctor.DoctorProfile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DoctorID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorID")
+                        .IsUnique();
+
+                    b.HasIndex("MemberId")
+                        .IsUnique();
+
+                    b.ToTable("DoctorProfiles");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("12fee9be-1198-45af-acf8-c7a3eff84a44"),
-                            Comment = "Doctor's behave very dangerous ",
-                            DoctorId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"),
-                            PatientId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
+                            Id = new Guid("97d05fed-f7e1-44d6-a2bb-79647ab22085"),
+                            DoctorID = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"),
+                            MemberId = new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82")
                         });
                 });
 
@@ -880,7 +910,7 @@ namespace Telecare_Backend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dec65ab6-8c99-4069-81c7-57c8aa83bc99"),
+                            Id = new Guid("8402d0cd-b8a4-4ad7-ad51-ef6dc8fa7fa5"),
                             Accept = false,
                             Experties = "Gyne,Chest,bone",
                             FullName = "Dr Md Sojib Hosen",
@@ -1037,8 +1067,8 @@ namespace Telecare_Backend.Migrations
             modelBuilder.Entity("Telecare.Domain.Entities.Admins.Admin", b =>
                 {
                     b.HasOne("Entities.Models.Members.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId")
+                        .WithOne("Admin")
+                        .HasForeignKey("Telecare.Domain.Entities.Admins.Admin", "MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1053,7 +1083,15 @@ namespace Telecare_Backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Members.Member", "Member")
+                        .WithOne("DoctorComment")
+                        .HasForeignKey("Telecare.Domain.Entities.User.Doctor.DoctorComment", "MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Doctor");
+
+                    b.Navigation("Member");
                 });
 
             modelBuilder.Entity("Telecare.Domain.Entities.User.Doctor.DoctorFollower", b =>
@@ -1064,7 +1102,15 @@ namespace Telecare_Backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.Members.Member", "Member")
+                        .WithMany("DoctorFollowers")
+                        .HasForeignKey("FollowerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Doctor");
+
+                    b.Navigation("Member");
                 });
 
             modelBuilder.Entity("Telecare.Domain.Entities.User.Doctor.DoctorPatient", b =>
@@ -1077,7 +1123,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasOne("Entities.Models.Members.Member", "Member")
                         .WithMany("DoctorPatients")
-                        .HasForeignKey("MemberId")
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1097,6 +1143,25 @@ namespace Telecare_Backend.Migrations
                     b.Navigation("Doctor");
                 });
 
+            modelBuilder.Entity("Telecare.Domain.Entities.User.Doctor.DoctorProfile", b =>
+                {
+                    b.HasOne("Telecare.Domain.Entities.User.Doctor.Doctor", "Doctor")
+                        .WithOne("DoctorProfile")
+                        .HasForeignKey("Telecare.Domain.Entities.User.Doctor.DoctorProfile", "DoctorID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Members.Member", "Member")
+                        .WithOne("DoctorProfile")
+                        .HasForeignKey("Telecare.Domain.Entities.User.Doctor.DoctorProfile", "MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Member");
+                });
+
             modelBuilder.Entity("Telecare.Domain.Entities.User.Doctor.DoctorRequest", b =>
                 {
                     b.HasOne("Entities.Models.Members.Member", "Member")
@@ -1110,9 +1175,20 @@ namespace Telecare_Backend.Migrations
 
             modelBuilder.Entity("Entities.Models.Members.Member", b =>
                 {
+                    b.Navigation("Admin")
+                        .IsRequired();
+
                     b.Navigation("CoverPicture");
 
+                    b.Navigation("DoctorComment")
+                        .IsRequired();
+
+                    b.Navigation("DoctorFollowers");
+
                     b.Navigation("DoctorPatients");
+
+                    b.Navigation("DoctorProfile")
+                        .IsRequired();
 
                     b.Navigation("DoctorRequests");
 
@@ -1136,6 +1212,9 @@ namespace Telecare_Backend.Migrations
                     b.Navigation("DoctorFollowers");
 
                     b.Navigation("DoctorPatients");
+
+                    b.Navigation("DoctorProfile")
+                        .IsRequired();
 
                     b.Navigation("Educations");
 
