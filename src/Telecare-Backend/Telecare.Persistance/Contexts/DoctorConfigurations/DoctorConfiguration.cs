@@ -16,7 +16,6 @@ namespace Telecare.Persistance.Contexts.DoctorConfigurations
                 Experties = "Surgery",
                 PhotoLink = "www.aws.com",
                 Rating = 4.6,
-                MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82")
             });
         }
     }
