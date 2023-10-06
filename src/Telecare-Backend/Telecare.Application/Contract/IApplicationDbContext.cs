@@ -1,5 +1,7 @@
 ﻿using Entities.Models.Friends;
 using Entities.Models.Members;
+using Entities.Models.Post;
+using Entities.Models.Post.PostContent.Photo;
 using Microsoft.EntityFrameworkCore;
 using Telecare.Domain.Entities.Admins;
 using Telecare.Domain.Entities.User.Doctor;
@@ -25,5 +27,9 @@ namespace Telecare.Application.Contract
         public DbSet<DoctorComment> DoctorComments { get; set; }
         public DbSet<DoctorPatientComplain> PatientComplains { get; set; }
         public DbSet<DoctorProfile> DoctorProfiles { get; set; }
+        //post
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+
     }
 }

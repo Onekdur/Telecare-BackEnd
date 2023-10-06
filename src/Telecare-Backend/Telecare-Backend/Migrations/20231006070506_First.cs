@@ -72,6 +72,21 @@ namespace Telecare_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Posts",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserType = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -355,15 +370,15 @@ namespace Telecare_Backend.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DoctorComments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DoctorComments_AspNetUsers_MemberId",
-                        column: x => x.MemberId,
+                        name: "FK_DoctorComments_AspNetUsers_PatientId",
+                        column: x => x.PatientId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -379,12 +394,13 @@ namespace Telecare_Backend.Migrations
                 name: "DoctorFollowers",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FollowerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorFollowers", x => new { x.FollowerId, x.DoctorId });
+                    table.PrimaryKey("PK_DoctorFollowers", x => x.Id);
                     table.ForeignKey(
                         name: "FK_DoctorFollowers_AspNetUsers_FollowerId",
                         column: x => x.FollowerId,
@@ -403,12 +419,13 @@ namespace Telecare_Backend.Migrations
                 name: "DoctorPatients",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorPatients", x => new { x.PatientId, x.DoctorId });
+                    table.PrimaryKey("PK_DoctorPatients", x => x.Id);
                     table.ForeignKey(
                         name: "FK_DoctorPatients_AspNetUsers_PatientId",
                         column: x => x.PatientId,
@@ -427,13 +444,12 @@ namespace Telecare_Backend.Migrations
                 name: "DoctorProfiles",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DoctorID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorProfiles", x => x.Id);
+                    table.PrimaryKey("PK_DoctorProfiles", x => new { x.MemberId, x.DoctorID });
                     table.ForeignKey(
                         name: "FK_DoctorProfiles_AspNetUsers_MemberId",
                         column: x => x.MemberId,
@@ -493,6 +509,12 @@ namespace Telecare_Backend.Migrations
                 {
                     table.PrimaryKey("PK_PatientComplains", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_PatientComplains_AspNetUsers_PatientId",
+                        column: x => x.PatientId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_PatientComplains_Doctors_DoctorId",
                         column: x => x.DoctorId,
                         principalTable: "Doctors",
@@ -532,10 +554,29 @@ namespace Telecare_Backend.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Photos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PhotLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Photos_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "GenDer", "IsDeactivate", "LastName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RelationShipStatus", "UserName" },
-                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "98007163-1a61-4f6e-89ea-0b70d685c733", "mdsojibhosen444@gmail.com", true, "Md Sojib", "Male", false, "Khan", null, null, "dhsgdwe323", "01778553706", false, "Single", null });
+                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "b6f864be-fdbe-43e5-bfe4-0db5899bc677", "mdsojibhosen444@gmail.com", true, "Md Sojib", "Male", false, "Khan", null, null, "dhsgdwe323", "01778553706", false, "Single", null });
 
             migrationBuilder.InsertData(
                 table: "Doctors",
@@ -547,8 +588,17 @@ namespace Telecare_Backend.Migrations
                 columns: new[] { "Id", "CureentlyRunnig", "Degree", "Description", "DoctorId", "From", "MemberId", "SchoolName", "To", "UserId", "isDelete", "isPrivate" },
                 values: new object[,]
                 {
-                    { new Guid("1b0374a2-5553-42e3-9bd1-87ac4c7f8c3e"), false, "Bsc", null, null, new DateTime(2023, 10, 3, 12, 42, 51, 549, DateTimeKind.Utc).AddTicks(9642), null, "Islamic University", new DateTime(2028, 10, 3, 18, 42, 51, 549, DateTimeKind.Local).AddTicks(9647), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false },
-                    { new Guid("82be4b01-b96d-4c01-8913-3571dc6c25f5"), false, "BA", null, null, new DateTime(2023, 10, 3, 12, 42, 51, 549, DateTimeKind.Utc).AddTicks(9670), null, "Rajshahi University", new DateTime(2028, 10, 3, 18, 42, 51, 549, DateTimeKind.Local).AddTicks(9670), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), false, false }
+                    { new Guid("6722965b-16e7-4c57-828d-e354171ec214"), false, "Bsc", null, null, new DateTime(2023, 10, 6, 7, 5, 6, 79, DateTimeKind.Utc).AddTicks(4602), null, "Islamic University", new DateTime(2028, 10, 6, 13, 5, 6, 79, DateTimeKind.Local).AddTicks(4606), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false },
+                    { new Guid("6d8035f7-f870-4614-8235-c79e9497ba74"), false, "BA", null, null, new DateTime(2023, 10, 6, 7, 5, 6, 79, DateTimeKind.Utc).AddTicks(4629), null, "Rajshahi University", new DateTime(2028, 10, 6, 13, 5, 6, 79, DateTimeKind.Local).AddTicks(4630), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), false, false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "Id", "Text", "Time", "UserId", "UserType" },
+                values: new object[,]
+                {
+                    { new Guid("0e1c1417-8dc0-4e9e-834d-89a889d2fb82"), "Good morning friens", new DateTime(2023, 10, 6, 13, 5, 6, 81, DateTimeKind.Local).AddTicks(8957), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), 0 },
+                    { new Guid("f53c694b-050c-42a3-8b18-7d389ed240ae"), "Good morning friens", new DateTime(2023, 10, 6, 13, 5, 6, 81, DateTimeKind.Local).AddTicks(8969), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -556,81 +606,91 @@ namespace Telecare_Backend.Migrations
                 columns: new[] { "Id", "ComapnyName", "CurrentlyRunning", "Description", "DoctorId", "From", "IsDelete", "IsPrivate", "MemberId", "Title", "To", "UserId" },
                 values: new object[,]
                 {
-                    { new Guid("2871fc75-d7a7-4f5e-928e-3fccca03d030"), "Devskill", false, "Hi this sojib", null, new DateTime(2023, 10, 3, 18, 42, 51, 550, DateTimeKind.Local).AddTicks(701), false, false, null, "Intern Software Enginer", new DateTime(2023, 10, 4, 14, 42, 51, 550, DateTimeKind.Local).AddTicks(702), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") },
-                    { new Guid("2fe80af9-c18f-40bc-be70-b991cdf5da39"), "Vivasoft", false, "Descriptiom", null, new DateTime(2023, 10, 3, 18, 42, 51, 550, DateTimeKind.Local).AddTicks(712), false, false, null, " Software Enginer", new DateTime(2023, 10, 5, 0, 42, 51, 550, DateTimeKind.Local).AddTicks(713), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") }
+                    { new Guid("5ba02c76-2044-42d2-88e6-615109dc5d7e"), "Devskill", false, "Hi this sojib", null, new DateTime(2023, 10, 6, 13, 5, 6, 79, DateTimeKind.Local).AddTicks(5641), false, false, null, "Intern Software Enginer", new DateTime(2023, 10, 7, 9, 5, 6, 79, DateTimeKind.Local).AddTicks(5642), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") },
+                    { new Guid("d00c531f-5958-4e78-a088-8db0557ae230"), "Vivasoft", false, "Descriptiom", null, new DateTime(2023, 10, 6, 13, 5, 6, 79, DateTimeKind.Local).AddTicks(5651), false, false, null, " Software Enginer", new DateTime(2023, 10, 7, 19, 5, 6, 79, DateTimeKind.Local).AddTicks(5652), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") }
                 });
 
             migrationBuilder.InsertData(
                 table: "Addresses",
                 columns: new[] { "Id", "MemberId", "ParmanentAdress", "PresentAddress" },
-                values: new object[] { new Guid("3a4d4878-fb0e-4c24-8a66-833fd8a0dcb1"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Pabna", "Kushtia" });
+                values: new object[] { new Guid("b5037567-857e-425c-acda-1ed1453df7fe"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "Pabna", "Kushtia" });
 
             migrationBuilder.InsertData(
                 table: "Admins",
                 columns: new[] { "Id", "AdminType", "MemberId" },
-                values: new object[] { new Guid("0bb523d6-ef80-445f-9f02-0df2c2cde31c"), 0, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
+                values: new object[] { new Guid("5416ed65-f768-4d15-b87c-821afa5c368e"), 0, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
 
             migrationBuilder.InsertData(
                 table: "CoverPhotos",
                 columns: new[] { "Id", "CoverPhotoLink", "Ispresent", "MemberId" },
                 values: new object[,]
                 {
-                    { new Guid("38212cc4-b771-4e4a-a34b-c82ff1fabd8a"), "www.aws.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") },
-                    { new Guid("b0499569-e8cc-4200-84b5-73e214725ae8"), "www.colud.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") }
+                    { new Guid("12055a35-3d61-4212-b96a-cf7dfe56018b"), "www.colud.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") },
+                    { new Guid("6a1ff212-6c24-4a12-bfa8-ecc4ae057995"), "www.aws.com", false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") }
                 });
 
             migrationBuilder.InsertData(
                 table: "DoctorComments",
-                columns: new[] { "Id", "Comment", "DoctorId", "MemberId", "Time" },
-                values: new object[] { new Guid("506a93f0-d016-4c6d-b1e7-f9f5d4018287"), "Doctor is very good at surgery ", new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), new DateTime(2023, 10, 3, 12, 42, 51, 551, DateTimeKind.Utc).AddTicks(7574) });
+                columns: new[] { "Id", "Comment", "DoctorId", "PatientId", "Time" },
+                values: new object[] { new Guid("e17a34fb-d50f-40a9-b059-28695feab85f"), "Doctor is very good at surgery ", new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), new DateTime(2023, 10, 6, 7, 5, 6, 81, DateTimeKind.Utc).AddTicks(1199) });
 
             migrationBuilder.InsertData(
                 table: "DoctorFollowers",
-                columns: new[] { "DoctorId", "FollowerId" },
-                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
+                columns: new[] { "Id", "DoctorId", "FollowerId" },
+                values: new object[] { new Guid("90cbc9a7-91fa-41ec-a199-0b1a4b6b1fea"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
 
             migrationBuilder.InsertData(
                 table: "DoctorPatients",
-                columns: new[] { "DoctorId", "PatientId" },
-                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
+                columns: new[] { "Id", "DoctorId", "PatientId" },
+                values: new object[] { new Guid("f5d0bff6-67a1-4167-97e2-0921ccc52239"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
 
             migrationBuilder.InsertData(
                 table: "DoctorProfiles",
-                columns: new[] { "Id", "DoctorID", "MemberId" },
-                values: new object[] { new Guid("0dae1e22-50ee-49ed-80b6-71806c7e16c7"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
+                columns: new[] { "DoctorID", "MemberId" },
+                values: new object[] { new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
 
             migrationBuilder.InsertData(
                 table: "DoctorRequests",
                 columns: new[] { "Id", "Accept", "Experties", "FullName", "HscCertificate", "MedicalIdCard", "MedicalSchoolCertificate", "MemberId", "Pending", "Reject", "SSCCertificate", "isSeen" },
-                values: new object[] { new Guid("0d2a95af-6bf0-4935-9f08-20c36245226e"), false, "Gyne,Chest,bone", "Dr Md Sojib Hosen", "www.aws.com", "www.google.com", "www.amar.com", new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), true, false, "www.aws.com", false });
+                values: new object[] { new Guid("1e4ec300-8d14-4707-93ea-5092ae7d10ee"), false, "Gyne,Chest,bone", "Dr Md Sojib Hosen", "www.aws.com", "www.google.com", "www.amar.com", new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), true, false, "www.aws.com", false });
 
             migrationBuilder.InsertData(
                 table: "FriendRequests",
                 columns: new[] { "Id", "IsSeen", "MemberId", "RequestId" },
-                values: new object[] { new Guid("ee0285f3-1a34-42d8-83ec-9c9ef82d0a51"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), new Guid("98a70078-69a3-4862-9096-b4a8387cdab5") });
+                values: new object[] { new Guid("7f2f7d64-754c-4cd7-a39b-9c0470bb1e28"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), new Guid("b7a2a3f0-2a08-433c-94ae-e5d8cf36449a") });
 
             migrationBuilder.InsertData(
                 table: "Friends",
                 columns: new[] { "Id", "Block", "BlockFromFriend", "BlockFromMe", "FriendId", "MemberId", "MessageBlock", "MessageBlockFromFriend", "MessageBlockFromME" },
                 values: new object[,]
                 {
-                    { new Guid("703c2cea-50db-4390-8fc2-287ef238da3d"), false, false, false, new Guid("df5754b2-018d-42e2-a9a0-c9d9dd7e9793"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false, false },
-                    { new Guid("8c17f1dd-87ef-478f-a910-755dc84f1419"), false, false, false, new Guid("75e1c9b8-8e2e-46ac-99d3-f0f4aadd550c"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false, false }
+                    { new Guid("2dd37c87-8ff5-4b1b-a310-1d7f7d174999"), false, false, false, new Guid("5cffdbc0-7748-4e5f-9655-52263659a9a1"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false, false },
+                    { new Guid("c3940e7d-3c5a-456d-8f71-10e16a259206"), false, false, false, new Guid("92a91119-434f-454e-95de-ccbc2077fa89"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), false, false, false }
                 });
+
+            migrationBuilder.InsertData(
+                table: "PatientComplains",
+                columns: new[] { "Id", "Comment", "DoctorId", "PatientId" },
+                values: new object[] { new Guid("691fec75-47c7-405b-b9f0-81b3dca3ec67"), "Doctor's behave very dangerous ", new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb85"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82") });
+
+            migrationBuilder.InsertData(
+                table: "Photos",
+                columns: new[] { "Id", "PhotLink", "PostId" },
+                values: new object[] { new Guid("63eb860b-2fde-4b64-8870-aa795ad26ae8"), "www.aws.com", new Guid("0e1c1417-8dc0-4e9e-834d-89a889d2fb82") });
 
             migrationBuilder.InsertData(
                 table: "ProfilePhotos",
                 columns: new[] { "Id", "IsPresent", "MemberId", "profilePhotoLink" },
                 values: new object[,]
                 {
-                    { new Guid("ac91d96f-4d44-4919-9304-6168ead6a225"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.aws.com" },
-                    { new Guid("f8942e0b-8b0b-4403-a1c0-dfe12de2a5fb"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.colud.com" }
+                    { new Guid("05a0088a-8f0e-4dc2-a0d9-4ba8abd6b281"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.aws.com" },
+                    { new Guid("43fe52bd-caf3-4662-8f93-67f1da3113b8"), false, new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), "www.colud.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "SendingRequests",
                 columns: new[] { "Id", "MemberId", "SendFriendRequestId" },
-                values: new object[] { new Guid("ba543316-6b3c-4b42-9387-75520c73afb8"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), new Guid("fc58f484-3dc5-45b1-9204-2ccbbba94116") });
+                values: new object[] { new Guid("326f3e96-6d39-47e9-b80e-2e3eafdfd364"), new Guid("0e1c1417-8dc0-4e9d-834d-89a889d2fb82"), new Guid("e3c296c9-8d3e-467f-be9e-93f6bd7829bb") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_MemberId",
@@ -693,9 +753,9 @@ namespace Telecare_Backend.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DoctorComments_MemberId",
+                name: "IX_DoctorComments_PatientId",
                 table: "DoctorComments",
-                column: "MemberId",
+                column: "PatientId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -704,9 +764,19 @@ namespace Telecare_Backend.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DoctorFollowers_FollowerId",
+                table: "DoctorFollowers",
+                column: "FollowerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DoctorPatients_DoctorId",
                 table: "DoctorPatients",
                 column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DoctorPatients_PatientId",
+                table: "DoctorPatients",
+                column: "PatientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DoctorProfiles_DoctorID",
@@ -749,6 +819,16 @@ namespace Telecare_Backend.Migrations
                 name: "IX_PatientComplains_DoctorId",
                 table: "PatientComplains",
                 column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PatientComplains_PatientId",
+                table: "PatientComplains",
+                column: "PatientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_PostId",
+                table: "Photos",
+                column: "PostId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProfilePhotos_MemberId",
@@ -826,6 +906,9 @@ namespace Telecare_Backend.Migrations
                 name: "PatientComplains");
 
             migrationBuilder.DropTable(
+                name: "Photos");
+
+            migrationBuilder.DropTable(
                 name: "ProfilePhotos");
 
             migrationBuilder.DropTable(
@@ -836,6 +919,9 @@ namespace Telecare_Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Posts");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

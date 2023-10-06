@@ -1,5 +1,7 @@
 ﻿using Entities.Models.Friends;
 using Entities.Models.Members;
+using Entities.Models.Post;
+using Entities.Models.Post.PostContent.Photo;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using Telecare.Persistance.Contexts.Configuration.AdminConfigurations;
 using Telecare.Persistance.Contexts.Configuration.FriendsConfigurions;
 using Telecare.Persistance.Contexts.Configuration.MemberConfiguration;
 using Telecare.Persistance.Contexts.Configuration.MemberConfigurations;
+using Telecare.Persistance.Contexts.Configuration.PostConfigurations.PhotoConfiguration;
 using Telecare.Persistance.Contexts.DoctorConfigurations;
 
 namespace Telecare.Persistance.Contexts
@@ -40,6 +43,8 @@ namespace Telecare.Persistance.Contexts
             builder.ApplyConfiguration(new DoctorCommentConfiguration());
             builder.ApplyConfiguration(new DoctorPatientComplainConfiguration());
             builder.ApplyConfiguration(new DoctorProfileConfiguration());
+            builder.ApplyConfiguration(new PostConfiguration());
+            builder.ApplyConfiguration(new PhotoPostConfiguration());
 
             base.OnModelCreating(builder);
         }
@@ -50,16 +55,19 @@ namespace Telecare.Persistance.Contexts
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Work> Works { get; set; }
         public DbSet<Education> Educations { get; set; }
-        public DbSet<Friend> Friends { get ; set ; }
-        public DbSet<FriendRequest> FriendRequests { get ; set ; }
-        public DbSet<SendingRequest> SendingRequests { get ; set ; }
-        public DbSet<Admin> Admins { get ; set ; }
-        public DbSet<Doctor> Doctors { get ; set ; }
-        public DbSet<DoctorRequest> DoctorRequests { get ; set ; }
-        public DbSet<DoctorFollower> DoctorFollowers { get ; set ; }
-        public DbSet<DoctorPatient> DoctorPatients { get ; set ; }
+        public DbSet<Friend> Friends { get; set; }
+        public DbSet<FriendRequest> FriendRequests { get; set; }
+        public DbSet<SendingRequest> SendingRequests { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<DoctorRequest> DoctorRequests { get; set; }
+        public DbSet<DoctorFollower> DoctorFollowers { get; set; }
+        public DbSet<DoctorPatient> DoctorPatients { get; set; }
         public DbSet<DoctorComment> DoctorComments { get; set; }
         public DbSet<DoctorPatientComplain> PatientComplains { get; set; }
         public DbSet<DoctorProfile> DoctorProfiles { get; set; }
+        //Post
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Photo> Photos { get; set; }
     }
 }

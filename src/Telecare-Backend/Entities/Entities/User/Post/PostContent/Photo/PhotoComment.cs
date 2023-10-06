@@ -6,6 +6,7 @@ namespace Entities.Models.Post.PostContent.Photo
     {
         public Guid Id { get; set; }
         public string Text { get; set; }
+        public DateTime Time { get; set; }
         public Guid MemmberId { get; set; }
         public Member Member { get; set; }
         public Guid PhotoId { get; set; }

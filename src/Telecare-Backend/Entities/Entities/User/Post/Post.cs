@@ -1,4 +1,5 @@
 ﻿using Entities.Models.Post.PostContent.Photo;
+using Telecare.Domain.Entities.Enum;
 
 namespace Entities.Models.Post
 {
@@ -6,6 +7,9 @@ namespace Entities.Models.Post
     {
         public Guid Id { get; set; }
         public string Text { get; set; }
-        List<Photo> Photos { get; set; }
+        public DateTime Time { get; set; }
+        public UserType UserType { get; set; }
+        public Guid UserId { get; set; }
+        public List<Photo> Photos { get; set; }
     }
 }
