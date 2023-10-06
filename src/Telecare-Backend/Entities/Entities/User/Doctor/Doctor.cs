@@ -1,6 +1,5 @@
 ﻿using Entities.Models.Members;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Telecare.Domain.Entities.User.Doctor
 {

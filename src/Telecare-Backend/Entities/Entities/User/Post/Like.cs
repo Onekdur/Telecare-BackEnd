@@ -1,4 +1,6 @@
-﻿namespace Entities.Models.Post
+﻿using Telecare.Domain.Entities.Enum;
+
+namespace Entities.Models.Post
 {
     public class Like
     {

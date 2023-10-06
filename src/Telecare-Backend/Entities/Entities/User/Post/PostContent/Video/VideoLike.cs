@@ -1,4 +1,6 @@
-﻿namespace Entities.Models.Post.PostContent.Video
+﻿using Telecare.Domain.Entities.Enum;
+
+namespace Entities.Models.Post.PostContent.Video
 {
     public class VideoLike
     {

@@ -1,4 +1,4 @@
-﻿namespace Entities.Models.Post
+﻿namespace Telecare.Domain.Entities.Enum
 {
     public enum LikeReact
     {

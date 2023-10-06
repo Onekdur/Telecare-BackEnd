@@ -1,4 +1,6 @@
-﻿namespace Entities.Models.Post.PostContent.Document
+﻿using Telecare.Domain.Entities.Enum;
+
+namespace Entities.Models.Post.PostContent.Document
 {
     public class DocumentLike
     {

@@ -1,4 +1,5 @@
 ﻿using Entities.Models.Friends;
+using Entities.Models.Post.PostContent.Photo;
 using Microsoft.AspNetCore.Identity;
 using Telecare.Domain.Entities.Admins;
 using Telecare.Domain.Entities.Enum;
@@ -27,5 +28,7 @@ namespace Entities.Models.Members
         public DoctorComment DoctorComment { get; set; }
         public List<DoctorFollower> DoctorFollowers { get; set; }
         public List<DoctorPatientComplain> DoctorPatientComplains { get; set; }
+        //post
+        public List<PhotoLike> PhotoLikes { get; set; }
     }
 }
