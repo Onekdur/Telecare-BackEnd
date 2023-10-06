@@ -45,6 +45,8 @@ namespace Telecare.Persistance.Contexts
             builder.ApplyConfiguration(new DoctorProfileConfiguration());
             builder.ApplyConfiguration(new PostConfiguration());
             builder.ApplyConfiguration(new PhotoPostConfiguration());
+            builder.ApplyConfiguration(new PhotoLikeConfiguration());
+            builder.ApplyConfiguration(new PhotoCommentConfiguration());
 
             base.OnModelCreating(builder);
         }
@@ -69,5 +71,7 @@ namespace Telecare.Persistance.Contexts
         //Post
         public DbSet<Post> Posts { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<PhotoLike> PhotoLikes { get; set; }
+        public DbSet<PhotoComment> PhotoComments { get; set; }
     }
 }

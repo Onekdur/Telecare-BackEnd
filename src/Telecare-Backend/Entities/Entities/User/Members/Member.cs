@@ -29,8 +29,8 @@ namespace Entities.Models.Members
         public List<DoctorFollower> DoctorFollowers { get; set; }
         public List<DoctorPatientComplain> DoctorPatientComplains { get; set; }
         //post
-        //public List<PhotoLike> PhotoLikes { get; set; }
-        //public List<PhotoComment> PhotoComments { get; set; }
+        public List<PhotoLike> PhotoLikes { get; set; }
+        public List<PhotoComment> PhotoComments { get; set; }
         //public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
         //public List<PhotoCommentPicture> PhotoCommentPictures { get; set; }
     }

@@ -16,7 +16,7 @@ namespace Telecare.Persistance.Contexts.Configuration.PostConfigurations.PhotoCo
 
             builder.HasData(new Photo()
             {
-                Id = Guid.NewGuid(),
+                Id = new Guid("0E1C1417-8DC1-4E9E-834D-89A889D2FB82"),
                 PhotLink = "www.aws.com",
                 PostId = new Guid("0E1C1417-8DC0-4E9E-834D-89A889D2FB82")
             });
