@@ -31,7 +31,7 @@ namespace Entities.Models.Members
         //post
         public List<PhotoLike> PhotoLikes { get; set; }
         public List<PhotoComment> PhotoComments { get; set; }
-        //public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
+        public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
         //public List<PhotoCommentPicture> PhotoCommentPictures { get; set; }
     }
 }

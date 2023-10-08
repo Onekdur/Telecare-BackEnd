@@ -56,7 +56,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("Friends");
+                    b.ToTable("Friends", (string)null);
 
                     b.HasData(
                         new
@@ -104,7 +104,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("FriendRequests");
+                    b.ToTable("FriendRequests", (string)null);
 
                     b.HasData(
                         new
@@ -132,7 +132,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("SendingRequests");
+                    b.ToTable("SendingRequests", (string)null);
 
                     b.HasData(
                         new
@@ -164,7 +164,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
 
                     b.HasData(
                         new
@@ -196,7 +196,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("CoverPhotos");
+                    b.ToTable("CoverPhotos", (string)null);
 
                     b.HasData(
                         new
@@ -260,7 +260,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("Educations");
+                    b.ToTable("Educations", (string)null);
 
                     b.HasData(
                         new
@@ -397,7 +397,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("ProfilePhotos");
+                    b.ToTable("ProfilePhotos", (string)null);
 
                     b.HasData(
                         new
@@ -462,7 +462,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("Works");
+                    b.ToTable("Works", (string)null);
 
                     b.HasData(
                         new
@@ -514,7 +514,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
 
                     b.HasData(
                         new
@@ -552,7 +552,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("Photos");
+                    b.ToTable("Photos", (string)null);
 
                     b.HasData(
                         new
@@ -588,7 +588,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("PhotoId");
 
-                    b.ToTable("PhotoComments");
+                    b.ToTable("PhotoComments", (string)null);
 
                     b.HasData(
                         new
@@ -616,7 +616,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("PhotoId");
 
-                    b.ToTable("PhotoLikes");
+                    b.ToTable("PhotoLikes", (string)null);
 
                     b.HasData(
                         new
@@ -775,7 +775,7 @@ namespace Telecare_Backend.Migrations
                     b.HasIndex("MemberId")
                         .IsUnique();
 
-                    b.ToTable("Admins");
+                    b.ToTable("Admins", (string)null);
 
                     b.HasData(
                         new
@@ -822,7 +822,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Doctors");
+                    b.ToTable("Doctors", (string)null);
 
                     b.HasData(
                         new
@@ -865,7 +865,7 @@ namespace Telecare_Backend.Migrations
                     b.HasIndex("PatientId")
                         .IsUnique();
 
-                    b.ToTable("DoctorComments");
+                    b.ToTable("DoctorComments", (string)null);
 
                     b.HasData(
                         new
@@ -896,7 +896,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("FollowerId");
 
-                    b.ToTable("DoctorFollowers");
+                    b.ToTable("DoctorFollowers", (string)null);
 
                     b.HasData(
                         new
@@ -925,7 +925,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("DoctorPatients");
+                    b.ToTable("DoctorPatients", (string)null);
 
                     b.HasData(
                         new
@@ -959,7 +959,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("PatientComplains");
+                    b.ToTable("PatientComplains", (string)null);
 
                     b.HasData(
                         new
@@ -987,7 +987,7 @@ namespace Telecare_Backend.Migrations
                     b.HasIndex("MemberId")
                         .IsUnique();
 
-                    b.ToTable("DoctorProfiles");
+                    b.ToTable("DoctorProfiles", (string)null);
 
                     b.HasData(
                         new
@@ -1042,7 +1042,7 @@ namespace Telecare_Backend.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("DoctorRequests");
+                    b.ToTable("DoctorRequests", (string)null);
 
                     b.HasData(
                         new
