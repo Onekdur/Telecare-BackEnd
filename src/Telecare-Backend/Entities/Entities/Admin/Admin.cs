@@ -1,5 +1,5 @@
 ﻿using Entities.Models.Members;
-using Telecare.Domain.Entities.Enum;
+using Telecare.Domain.Enum;
 
 namespace Telecare.Domain.Entities.Admins
 {

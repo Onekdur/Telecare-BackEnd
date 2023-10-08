@@ -2,8 +2,8 @@
 using Entities.Models.Post.PostContent.Photo;
 using Microsoft.AspNetCore.Identity;
 using Telecare.Domain.Entities.Admins;
-using Telecare.Domain.Entities.Enum;
 using Telecare.Domain.Entities.User.Doctor;
+using Telecare.Domain.Enum;
 
 namespace Entities.Models.Members
 {

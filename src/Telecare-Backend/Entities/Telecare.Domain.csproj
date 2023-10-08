@@ -11,8 +11,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\Notification\" />
-  </ItemGroup>
-
 </Project>

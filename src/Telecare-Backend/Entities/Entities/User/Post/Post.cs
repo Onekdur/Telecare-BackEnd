@@ -1,5 +1,5 @@
 ﻿using Entities.Models.Post.PostContent.Photo;
-using Telecare.Domain.Entities.Enum;
+using Telecare.Domain.Enum;
 
 namespace Entities.Models.Post
 {

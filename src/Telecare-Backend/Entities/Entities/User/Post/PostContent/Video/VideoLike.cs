@@ -1,4 +1,4 @@
-﻿using Telecare.Domain.Entities.Enum;
+﻿using Telecare.Domain.Enum;
 
 namespace Entities.Models.Post.PostContent.Video
 {

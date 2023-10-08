@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Telecare.Domain.Entities.Admins;
+using Telecare.Domain.Enum;
 
 namespace Telecare.Persistance.Contexts.Configuration.AdminConfigurations
 {
@@ -12,7 +13,7 @@ namespace Telecare.Persistance.Contexts.Configuration.AdminConfigurations
             {
                 Id = Guid.NewGuid(),
                 MemberId = new Guid("0E1C1417-8DC0-4E9D-834D-89A889D2FB82"),
-                AdminType = Domain.Entities.Enum.AdminType.CEO
+                AdminType = AdminType.CEO
             });
         }
     }

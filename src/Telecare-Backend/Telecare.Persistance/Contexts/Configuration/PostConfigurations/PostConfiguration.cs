@@ -1,7 +1,7 @@
 ﻿using Entities.Models.Post;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Telecare.Domain.Entities.Enum;
+using Telecare.Domain.Enum;
 
 namespace Telecare.Persistance.Contexts.Configuration.PostConfigurations.PhotoConfiguration
 {
