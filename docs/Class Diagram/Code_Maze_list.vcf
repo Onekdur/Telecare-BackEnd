@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION;TYPE=WORK:3.0
+FN;CHARSET=UTF-8:Marinko Spasojevic
+N;CHARSET=UTF-8:Marinko Spasojevic;;;;
+PROFILE:VCARD
+ADR;CHARSET=UTF-8:;;Branka Bajica 9V;Novi Sad;;21000;Serbia
+EMAIL:contact@code-maze.com
+ORG;CHARSET=UTF-8:Code Maze
+URL:https://code-maze.com
+END:VCARD

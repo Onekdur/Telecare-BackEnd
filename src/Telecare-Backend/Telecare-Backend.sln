@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare-Backend", "Telecare-Backend\Telecare-Backend.csproj", "{5101D07A-E08B-438B-8296-57680719CE9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.Api", "Telecare-Backend\Telecare.Api.csproj", "{5101D07A-E08B-438B-8296-57680719CE9B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Layer", "Domain Layer", "{5105D341-0BEA-4977-A233-D3EC810776D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.Domain", "Entities\Telecare.Domain.csproj", "{F2DB6731-1231-412E-9D66-BD57C9B7FA87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{F2DB6731-1231-412E-9D66-BD57C9B7FA87}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{4F15BCD5-89E1-4A77-B2CF-05D089FFD8E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare.Application", "Telecare.Application\Telecare.Application.csproj", "{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare.Persistance", "Telecare.Persistance\Telecare.Persistance.csproj", "{54F276AD-3615-4F94-9CFF-661A8471287B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +29,23 @@ Global
 		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2DB6731-1231-412E-9D66-BD57C9B7FA87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F276AD-3615-4F94-9CFF-661A8471287B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F276AD-3615-4F94-9CFF-661A8471287B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F276AD-3615-4F94-9CFF-661A8471287B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F276AD-3615-4F94-9CFF-661A8471287B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F2DB6731-1231-412E-9D66-BD57C9B7FA87} = {5105D341-0BEA-4977-A233-D3EC810776D9}
+		{5101D07A-E08B-438B-8296-57680719CE9B} = {4F15BCD5-89E1-4A77-B2CF-05D089FFD8E7}
+		{F2DB6731-1231-412E-9D66-BD57C9B7FA87} = {8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}
+		{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF} = {8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}
+		{54F276AD-3615-4F94-9CFF-661A8471287B} = {8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CA75C79-C80A-4E65-916F-FBBECAA50740}

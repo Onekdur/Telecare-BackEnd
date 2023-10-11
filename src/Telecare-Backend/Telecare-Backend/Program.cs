@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Telecare.Persistance.Contexts;
 using Telecare_Backend.Extension_Method;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,23 +9,51 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.SwaggerConfiguration();
 
+//Conncation String
+
+var connectionString = builder.Configuration.GetConnectionString("TelecareDb");
+var LoggingconnectionString = builder.Configuration.GetConnectionString("TelecareLoggingDb");
+
+//Serilog Configuration
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateBootstrapLogger();
+
+//Dbcontext Configuration
+
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+{
+    option.UseSqlServer(connectionString,m => m.MigrationsAssembly("Telecare.Api"));
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
 
-var app = builder.Build();
+try
+{
+    Log.Write(Serilog.Events.LogEventLevel.Information, "Apllication start");
 
-//Swagger UI Configuraton
+    var app = builder.Build();
 
-var env = app.Environment;
-app.ConfigureSwaggerUI(env);
+    //Swagger UI Configuraton
 
-// Configure the HTTP request pipeline.
+    var env = app.Environment;
+    app.ConfigureSwaggerUI(env);
 
-app.UseHttpsRedirection();
+    // Configure the HTTP request pipeline.
 
-app.UseAuthorization();
+    app.UseHttpsRedirection();
 
-app.MapControllers();
+    app.UseAuthorization();
 
-app.Run();
+    app.MapControllers();
+
+    app.Run();
+}
+catch(Exception ex)
+{
+    Log.Write(Serilog.Events.LogEventLevel.Fatal, $"Apllication can't start because {ex.Message} ");
+}
