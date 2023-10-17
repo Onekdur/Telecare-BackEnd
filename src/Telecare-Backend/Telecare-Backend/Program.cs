@@ -1,5 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Telecare.Application.Logger;
+using Telecare.Domain.Logger;
 using Telecare.Persistance.Contexts;
 using Telecare_Backend.Extension_Method;
 
@@ -20,6 +22,10 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateBootstrapLogger();
+
+//Service Entension
+
+builder.Services.ConfigureLoggerService();
 
 //Dbcontext Configuration
 
@@ -45,6 +51,9 @@ try
 
     // Configure the HTTP request pipeline.
 
+    var logger = app.Services.GetRequiredService<ILogggerManager>();
+    app.ConfigureExceptionHandler(logger);
+        
     app.UseHttpsRedirection();
 
     app.UseAuthorization();

@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{4F15BCD5-89E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare.Application", "Telecare.Application\Telecare.Application.csproj", "{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.Application", "Telecare.Application\Telecare.Application.csproj", "{6D8EE0D0-74A2-4917-959D-DAEA1EEB8DEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare.Persistance", "Telecare.Persistance\Telecare.Persistance.csproj", "{54F276AD-3615-4F94-9CFF-661A8471287B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.Persistance", "Telecare.Persistance\Telecare.Persistance.csproj", "{54F276AD-3615-4F94-9CFF-661A8471287B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
