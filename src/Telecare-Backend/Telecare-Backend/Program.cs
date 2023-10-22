@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Serilog;
-using Telecare.Domain.Logger;
 using Telecare.Persistance.Contexts;
 using Telecare_Backend.Extension_Method;
 
@@ -49,9 +48,6 @@ try
     app.ConfigureSwaggerUI(env);
 
     // Configure the HTTP request pipeline.
-
-    var logger = app.Services.GetRequiredService<ILogggerManager>();
-    app.ConfigureExceptionHandler(logger);
 
     app.UseHttpsRedirection();
 
