@@ -16,4 +16,9 @@
     <ProjectReference Include="..\Entities\Telecare.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstraction\Messaging\" />
+    <Folder Include="Features\Account\Users\Query\" />
+  </ItemGroup>
+
 </Project>
