@@ -69,6 +69,14 @@ namespace Telecare.InfraSturecture.Model
         public static IResult Fail(params string[] errors) => new Result(StatusCodes.Status400BadRequest, errors);
         public static IResult Fail(int statusCode) => new Result(statusCode, Array.Empty<string>());
         public static IResult Fail(int statusCode, params string[] errors) => new Result(statusCode, errors);
+
+        public static IResult<T> Success<T>() => Result<T>.Success();
+        public static IResult<T> Success<T>(int statusCode, T data) => Result<T>.Success(statusCode, data);
+        public static IResult<T> Success<T>(T data) => Result<T>.Success(StatusCodes.Status200OK, data);
+        public static IResult<T> Fail<T>() => Result<T>.Fail();
+        public static IResult<T> Fail<T>(params string[] errors) => Result<T>.Fail(StatusCodes.Status400BadRequest, errors);
+        public static IResult<T> Fail<T>(int statusCode) => Result<T>.Fail(statusCode);
+        public static IResult<T> Fail<T>(int statusCode, params string[] errors) => Result<T>.Fail(statusCode, errors);
     }
 
     public class Result<T> : Result, IResult<T>

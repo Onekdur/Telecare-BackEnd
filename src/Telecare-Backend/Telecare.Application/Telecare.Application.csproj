@@ -14,10 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entities\Telecare.Domain.csproj" />
+    <ProjectReference Include="..\Telecare.InfraSturecture\Telecare.InfraSturecture.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstraction\Messaging\" />
     <Folder Include="Features\Account\Users\Query\" />
   </ItemGroup>
 
