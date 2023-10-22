@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Telecare.Domain.Logger;
 using Telecare.Persistance.Contexts;
 using Telecare_Backend.Extension_Method;
 
@@ -21,11 +22,15 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateBootstrapLogger();
 
+//Service Entension
+
+builder.Services.ConfigureLoggerService();
+
 //Dbcontext Configuration
 
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
-    option.UseSqlServer(connectionString,m => m.MigrationsAssembly("Telecare.Api"));
+    option.UseSqlServer(connectionString, m => m.MigrationsAssembly("Telecare.Api"));
 });
 
 // Add services to the container.
@@ -45,6 +50,9 @@ try
 
     // Configure the HTTP request pipeline.
 
+    var logger = app.Services.GetRequiredService<ILogggerManager>();
+    app.ConfigureExceptionHandler(logger);
+
     app.UseHttpsRedirection();
 
     app.UseAuthorization();
@@ -53,7 +61,7 @@ try
 
     app.Run();
 }
-catch(Exception ex)
+catch (Exception ex)
 {
     Log.Write(Serilog.Events.LogEventLevel.Fatal, $"Apllication can't start because {ex.Message} ");
 }
