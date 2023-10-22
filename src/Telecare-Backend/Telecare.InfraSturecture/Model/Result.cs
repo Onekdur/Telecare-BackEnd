@@ -1,4 +1,5 @@
-﻿using Telecare.InfraSturecture.Model.Abstract;
+﻿using Microsoft.AspNetCore.Http;
+using Telecare.InfraSturecture.Model.Abstract;
 
 namespace Telecare.InfraSturecture.Model
 {
@@ -61,6 +62,13 @@ namespace Telecare.InfraSturecture.Model
             };
             Title = IsSuccess ? "Request Success!" : "Request Failed!";
         }
+
+        public static IResult Success() => new Result(StatusCodes.Status200OK, Array.Empty<string>());
+        public static IResult Success(int statusCode) => new Result(statusCode, Array.Empty<string>());
+        public static IResult Fail() => new Result(StatusCodes.Status400BadRequest, Array.Empty<string>());
+        public static IResult Fail(params string[] errors) => new Result(StatusCodes.Status400BadRequest, errors);
+        public static IResult Fail(int statusCode) => new Result(statusCode, Array.Empty<string>());
+        public static IResult Fail(int statusCode, params string[] errors) => new Result(statusCode, errors);
     }
 
     public class Result<T> : Result, IResult<T>
@@ -72,6 +80,11 @@ namespace Telecare.InfraSturecture.Model
             Data = data;
         }
 
+        internal new static IResult<T> Success() => new Result<T>(200, default(T), Array.Empty<string>()); //new keyword hide the base class's success method
+        internal static IResult<T> Success(T data) => new Result<T>(200, data, Array.Empty<string>());
+        internal static IResult<T> Success(int statusCode, T data) => new Result<T>(statusCode, data, Array.Empty<string>());
 
+        internal new static IResult<T> Fail() => new Result<T>(400, default(T), Array.Empty<string>());
+        internal new static IResult<T> Fail(int statusCode, params string[] errors) => new Result<T>(statusCode, default(T), errors);
     }
 }
