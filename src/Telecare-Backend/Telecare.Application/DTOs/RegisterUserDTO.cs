@@ -2,6 +2,6 @@
 
 namespace Telecare.Application.DTOs
 {
-    public sealed record RegisterUserDTO(string firstName, string lastName, string email,
+    public sealed record RegisterUserDTO(string firstName, string lastName, string emailorPhone,
         string password, Gender gender, DateTime birthDate);
 }
