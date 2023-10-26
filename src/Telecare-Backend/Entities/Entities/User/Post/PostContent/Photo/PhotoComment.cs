@@ -11,7 +11,7 @@ namespace Entities.Models.Post.PostContent.Photo
         public Member Member { get; set; }
         public Guid PhotoId { get; set; }
         public Photo Photo { get; set; }
-        public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
+        //public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
         //public List<PhotoCommentPicture> PhotoCommentPictures { get; set; }
     }
 }

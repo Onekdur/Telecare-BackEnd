@@ -32,6 +32,6 @@ namespace Telecare.Application.Contract
         public DbSet<Photo> Photos { get; set; }
         public DbSet<PhotoLike> PhotoLikes { get; set; }
         public DbSet<PhotoComment> PhotoComments { get; set; }
-        public DbSet<PhotoCommentLike> PhotoCommentLikes { get; set; }
+        //public DbSet<PhotoCommentLike> PhotoCommentLikes { get; set; }
     }
 }

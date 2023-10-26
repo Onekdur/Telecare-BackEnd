@@ -45,6 +45,7 @@ namespace Telecare.Persistance.Contexts.Configuration.MemberConfigurations
                 IsDeactivate = false,
                 PasswordHash = "dhsgdwe323",
                 EmailConfirmed = true,
+                BirthDate = new DateTime(2000,09,25)
             });
         }
     }

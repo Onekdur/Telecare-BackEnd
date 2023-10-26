@@ -14,6 +14,7 @@ namespace Entities.Models.Members
         public Gender GenDer { get; set; }
         public bool IsDeactivate { get; set; } = false;
         public RelationshipStatus? RelationShipStatus { get; set; } = RelationshipStatus.Single;
+        public DateTime BirthDate { get; set; }
         public Admin Admin { get; set; }
         public DoctorProfile DoctorProfile { get; set; }
         public List<ProfilePhoto> ProfilePicture { get; set; }
@@ -31,7 +32,7 @@ namespace Entities.Models.Members
         //post
         public List<PhotoLike> PhotoLikes { get; set; }
         public List<PhotoComment> PhotoComments { get; set; }
-        public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
+        //public List<PhotoCommentLike> PhotoCommentLikes { get; set; }
         //public List<PhotoCommentPicture> PhotoCommentPictures { get; set; }
     }
 }
