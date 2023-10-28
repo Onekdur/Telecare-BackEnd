@@ -26,15 +26,17 @@ namespace Telecare.Persistance.Repositories
            await Task.Run(() => dbSet.Remove(entity),cancellationToken);
         }
 
-        public async Task<IQueryable<TEntity>> GetAllAsync(bool trackChange, CancellationToken cancellationToken = default) 
+        public async Task<IQueryable<TEntity>> GetAllAsync(bool trackChange, 
+            CancellationToken cancellationToken = default) 
         {
             return  (IQueryable<TEntity>) ( !trackChange ? dbSet.AsNoTracking().ToListAsync(cancellationToken) 
                 : dbSet.ToListAsync(cancellationToken));
         }  
         
-        public async Task<IQueryable<TEntity>> GetSingleAsync(Expression<Func<TEntity, bool>> expression, bool trackChnage, CancellationToken cancellationToken = default)
+        public async Task<IQueryable<TEntity>> GetSingleAsync(Expression<Func<TEntity, bool>> expression, 
+            bool trackChange, CancellationToken cancellationToken = default)
         {
-           return (IQueryable<TEntity>) (!trackChnage ? dbSet.Where(expression).AsNoTracking().ToListAsync(cancellationToken) 
+           return (IQueryable<TEntity>) (!trackChange ? dbSet.Where(expression).AsNoTracking().ToListAsync(cancellationToken) 
                 : dbSet.Where(expression).ToListAsync(cancellationToken)); 
         }
 

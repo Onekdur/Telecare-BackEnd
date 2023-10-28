@@ -11,7 +11,7 @@ namespace Telecare.Domain.Repositories
 
         Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default);
 
-        Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> expression, 
+        Task<IQueryable<TEntity>> GetSingleAsync(Expression<Func<TEntity, bool>> expression, 
             bool trackChnage, CancellationToken cancellationToken = default);
 
         Task<IQueryable<TEntity>> GetAllAsync(bool trackChange, CancellationToken cancellationToken = default);
