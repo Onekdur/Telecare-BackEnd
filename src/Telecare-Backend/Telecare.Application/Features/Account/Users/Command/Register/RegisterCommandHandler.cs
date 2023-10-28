@@ -14,6 +14,7 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
         {
             this.identityService = identityService;
         }
+
         public Task<IResult<RegisterCommandResponse>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var result = identityService.CreateUserAsync(request.Adapt<RegisterUserDTO>(), cancellationToken);

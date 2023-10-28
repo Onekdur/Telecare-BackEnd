@@ -14,8 +14,7 @@ namespace Telecare.Domain.Repositories
         Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> expression, 
             bool trackChnage, CancellationToken cancellationToken = default);
 
-        Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression,
-            bool trackChnage, CancellationToken cancellationToken = default);
+        Task<IQueryable<TEntity>> GetAllAsync(bool trackChange, CancellationToken cancellationToken = default);
 
         Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
 

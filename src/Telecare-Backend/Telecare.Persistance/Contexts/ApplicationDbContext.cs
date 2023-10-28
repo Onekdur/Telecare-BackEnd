@@ -52,6 +52,7 @@ namespace Telecare.Persistance.Contexts
             base.OnModelCreating(builder);
         }
 
+        public DbSet<TEntity> Dbset<TEntity>() where TEntity : class => Set<TEntity>();
         public DbSet<Member> Members { get; set; }
         public DbSet<CoverPhoto> CoverPhotos { get; set; }
         public DbSet<ProfilePhoto> ProfilePhotos { get; set; }
