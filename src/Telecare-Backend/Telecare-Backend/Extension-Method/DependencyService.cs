@@ -1,4 +1,6 @@
-﻿using Telecare.Domain.UnitofWork;
+﻿using Telecare.Domain.Repositories.UserRepository;
+using Telecare.Domain.UnitofWork;
+using Telecare.Persistance.Repositories.UserRepository;
 using Telecare.Persistance.UnitofWork;
 
 namespace Telecare_Backend.Extension_Method
@@ -10,8 +12,8 @@ namespace Telecare_Backend.Extension_Method
             //unit of Work
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            //base repository
-
+            //repository
+            services.AddScoped<IMemberRepositrory, MemberRepository>();
         }
     }
 }
