@@ -34,5 +34,6 @@ namespace Telecare.Application.Contract
         DbSet<PhotoLike> PhotoLikes { get; set; }
         DbSet<PhotoComment> PhotoComments { get; set; }
         //public DbSet<PhotoCommentLike> PhotoCommentLikes { get; set; }
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

@@ -3,7 +3,7 @@ using Telecare.Domain.Common;
 
 namespace Telecare.Domain.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public interface IRepository<TEntity> 
     {
         Task IsertAsync(TEntity entity, CancellationToken cancellationToken = default);
 
