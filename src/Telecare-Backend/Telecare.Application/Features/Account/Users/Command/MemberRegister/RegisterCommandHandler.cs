@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using Entities.Models.Members;
+using Mapster;
 using MediatR;
 using Telecare.Application.DTOs;
 using Telecare.Domain.UnitofWork;
@@ -16,7 +17,9 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
 
         public Task<MemberDTO> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            var user = request.Adapt<>
+            var user = request.Adapt<Member>();
+
+            
         }
     }
 }

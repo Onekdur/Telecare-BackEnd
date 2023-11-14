@@ -4,8 +4,8 @@ using Telecare.Domain.Enum;
 
 namespace Telecare.Application.Features.Account.Users.Command.Register
 {
-    public sealed record RegisterUserCommand(string firstName, string lastName, string emailorPhone,
-        string password, Gender gender, DateTime birthDate) : IRequest<MemberDTO>
+    public sealed record RegisterUserCommand(string FirstName, string LastName, string Email,
+        string Password, Gender GenDer, DateTime BirthDate) : IRequest<MemberDTO>
     {
 
     }

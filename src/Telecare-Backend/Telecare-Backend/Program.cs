@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Serilog;
+using System.Reflection;
 using Telecare.Persistance.Contexts;
 using Telecare_Backend.Extension_Method;
 
@@ -18,9 +19,12 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateBootstrapLogger();
 
-//Service Entension
+//Service Extension
 builder.Services.ConfigureLoggerService();
 builder.Services.DependecyServiceConfiguration();
+
+//CQRS and Mediator Configuration
+builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
 
 //Dbcontext Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(option =>

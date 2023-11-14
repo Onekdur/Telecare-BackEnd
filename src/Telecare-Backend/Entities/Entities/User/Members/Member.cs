@@ -1,7 +1,6 @@
 ﻿using Entities.Models.Friends;
 using Entities.Models.Post.PostContent.Photo;
 using Microsoft.AspNetCore.Identity;
-using Telecare.Domain.Common;
 using Telecare.Domain.Entities.Admins;
 using Telecare.Domain.Entities.User.Doctor;
 using Telecare.Domain.Enum;
