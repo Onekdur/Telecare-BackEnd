@@ -19,7 +19,7 @@ namespace Telecare.Persistance.Contexts
 {
     public class ApplicationDbContext : IdentityDbContext<Member, IdentityRole<Guid>, Guid>, IApplicationDbContext
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }

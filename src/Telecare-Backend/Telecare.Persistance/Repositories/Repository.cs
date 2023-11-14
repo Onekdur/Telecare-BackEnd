@@ -5,7 +5,7 @@ using Telecare.Domain.Repositories;
 
 namespace Telecare.Persistance.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity>
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly IApplicationDbContext dbContext;
         private DbSet<TEntity> dbSet;

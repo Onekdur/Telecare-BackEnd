@@ -2,7 +2,7 @@
 
 namespace Telecare.Domain.UnitofWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         Task SavChangeAsync(CancellationToken cancellationToken);
         IMemberRepositrory MemberRepositrory { get;}

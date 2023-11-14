@@ -1,12 +1,11 @@
 ﻿using Entities.Models.Members;
 using Mapster;
 using MediatR;
-using Telecare.Application.DTOs;
 using Telecare.Domain.UnitofWork;
 
 namespace Telecare.Application.Features.Account.Users.Command.Register
 {
-    public sealed class RegisterCommandHandler : IRequestHandler<RegisterUserCommand,MemberDTO>
+    public sealed class RegisterCommandHandler : IRequestHandler<RegisterUserCommand>
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -15,11 +14,13 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
             this.unitOfWork = unitOfWork;
         }
 
-        public Task<MemberDTO> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+        public async Task Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var user = request.Adapt<Member>();
 
-            
+            await unitOfWork.MemberRepositrory.IsertAsync(user);
+            await unitOfWork.SavChangeAsync(cancellationToken);
+            unitOfWork.Dispose();
         }
     }
 }
