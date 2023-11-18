@@ -20,7 +20,6 @@ Log.Logger = new LoggerConfiguration()
     .CreateBootstrapLogger();
 
 //Service Extension
-builder.Services.ConfigureLoggerService();
 builder.Services.DependecyServiceConfiguration();
 
 //CQRS and Mediator Configuration

@@ -6,7 +6,7 @@ namespace Telecare.Persistance.Repositories.UserRepository
 {
     public class MemberRepository : Repository<Member>, IMemberRepositrory
     {
-        protected MemberRepository(IApplicationDbContext applicationDbContext) : base(applicationDbContext)
+        public MemberRepository(IApplicationDbContext applicationDbContext) : base(applicationDbContext)
         {
         }
     }
