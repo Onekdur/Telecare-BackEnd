@@ -23,7 +23,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Services.DependecyServiceConfiguration();
 
 //CQRS and Mediator Configuration
-builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
+var result = builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
 
 //Dbcontext Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
