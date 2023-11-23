@@ -7,6 +7,7 @@ namespace Telecare.Persistance.UnitofWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IApplicationDbContext applicationDbContext;
+        public IMemberRepositrory MemberRepositrory { get;}
         public UnitOfWork(IApplicationDbContext applicationDbContext, 
             IMemberRepositrory memberRepositrory)
         {
@@ -14,7 +15,6 @@ namespace Telecare.Persistance.UnitofWork
             MemberRepositrory = memberRepositrory;
         }
 
-        public IMemberRepositrory MemberRepositrory { get;}
         public async Task SavChangeAsync(CancellationToken cancellationToken)
         {
             await applicationDbContext.SaveChangesAsync(cancellationToken);

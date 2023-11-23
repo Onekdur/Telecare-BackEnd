@@ -16,7 +16,7 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
 
         public async Task Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            var user = request.Adapt<Member>();
+            var user = request.memberDto.Adapt<Member>();
 
             await unitOfWork.MemberRepositrory.IsertAsync(user);
             await unitOfWork.SavChangeAsync(cancellationToken);

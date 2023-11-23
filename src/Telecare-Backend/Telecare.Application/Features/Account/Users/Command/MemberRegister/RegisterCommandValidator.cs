@@ -6,40 +6,41 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
     {
         public RegisterCommandValidator()
         {
-            RuleFor(x => x.FirstName)
+            RuleFor(x => x.memberDto.Email)
                 .Cascade(CascadeMode.Stop)
+                .EmailAddress()
                 .NotNull()
                 .NotEmpty()
                 .MinimumLength(2)
                 .MaximumLength(100);
 
-            RuleFor(x => x.LastName)
-                .Cascade(CascadeMode.Stop)
+            RuleFor(x => x.memberDto.LastName)
+                .Cascade(CascadeMode.Stop)                
                 .NotNull()
                 .NotEmpty()
                 .MinimumLength(2)
                 .MaximumLength(100);
 
-            RuleFor(x => x.Email)
+            RuleFor(x => x.memberDto.Email)
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
                 .NotEmpty()
                 .MinimumLength(5)
                 .MaximumLength(100);
 
-            RuleFor(x => x.Password)
+            RuleFor(x => x.memberDto.Password)
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
                 .NotEmpty()
                 .MinimumLength(8)
                 .MaximumLength(100);
 
-            RuleFor(x => x.BirthDate)
+            RuleFor(x => x.memberDto.BirthDate)
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
                 .NotEmpty();
 
-            RuleFor(x => x.GenDer)
+            RuleFor(x => x.memberDto.GenDer)
                .Cascade(CascadeMode.Stop)
                .NotNull()
                .NotEmpty();
