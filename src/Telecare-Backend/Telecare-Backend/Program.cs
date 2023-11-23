@@ -2,6 +2,7 @@
 using Serilog;
 using System.Reflection;
 using Telecare.Persistance.Contexts;
+using Telecare.Presentation.Extension;
 using Telecare_Backend.Extension_Method;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+//Configure Api versioning.
+builder.Services.ConfigureAPIVersion();
 
 try
 {
