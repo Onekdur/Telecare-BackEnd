@@ -24,7 +24,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Services.DependecyServiceConfiguration();
 
 //CQRS and Mediator Configuration
-var result = builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
+builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
 
 //Dbcontext Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
@@ -32,8 +32,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
     option.UseSqlServer(connectionString, m => m.MigrationsAssembly("Telecare.Api"));
 });
 
-// Add services to the container.
-builder.Services.AddControllers();
+// Add Controller project to the services
+builder.Services.AddControllers().
+    AddApplicationPart(typeof(Telecare.Presentation.PresentationAssemblyReference).Assembly);
 
 //Configure Api versioning.
 builder.Services.ConfigureAPIVersion();
