@@ -14,6 +14,13 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
                 .MinimumLength(2)
                 .MaximumLength(100);
 
+            RuleFor(x => x.memberDto.FirstName)
+                .Cascade(CascadeMode.Stop)
+                .NotNull()
+                .NotEmpty()
+                .MinimumLength(2)
+                .MaximumLength(100);
+
             RuleFor(x => x.memberDto.LastName)
                 .Cascade(CascadeMode.Stop)                
                 .NotNull()
@@ -39,11 +46,6 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
                 .NotEmpty();
-
-            RuleFor(x => x.memberDto.GenDer)
-               .Cascade(CascadeMode.Stop)
-               .NotNull()
-               .NotEmpty();
         }
     }
 }

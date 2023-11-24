@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Reflection;
 using Telecare.Persistance.Contexts;
@@ -23,8 +24,9 @@ Log.Logger = new LoggerConfiguration()
 //Service Extension
 builder.Services.DependecyServiceConfiguration();
 
-//CQRS and Mediator Configuration
+//MediatR  and Fluent Validation Configuration
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
+builder.Services.AddValidatorsFromAssembly(typeof(Telecare.Application.ApplicationAssemblyReference).Assembly);
 
 //Dbcontext Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(option =>

@@ -20,7 +20,12 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
 
         public async Task Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            var validateResult = await validator.ValidateAsync(request, cancellationToken);
+            var validationResult = await validator.ValidateAsync(request, cancellationToken);
+
+            if(!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
 
             var user = request.memberDto.Adapt<Member>();
 

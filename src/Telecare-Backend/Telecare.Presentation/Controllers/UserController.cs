@@ -19,9 +19,11 @@ namespace Telecare.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task CreateUser([FromBody] MemberDTO member, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateUser([FromBody] MemberDTO member, CancellationToken cancellationToken)
         {
             await sender.Send(new RegisterUserCommand(member));
+
+            return Ok("Registarion Successfull");
         }
     }
 }
