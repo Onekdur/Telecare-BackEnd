@@ -4,7 +4,7 @@ namespace Telecare.Domain.UnitofWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        Task SavChangeAsync(CancellationToken cancellationToken);
+        Task<bool> SavChangeAsync(CancellationToken cancellationToken);
         IMemberRepositrory MemberRepositrory { get;}
     }
 }

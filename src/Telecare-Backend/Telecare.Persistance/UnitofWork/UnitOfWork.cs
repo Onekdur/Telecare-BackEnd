@@ -15,9 +15,15 @@ namespace Telecare.Persistance.UnitofWork
             MemberRepositrory = memberRepositrory;
         }
 
-        public async Task SavChangeAsync(CancellationToken cancellationToken)
+        public async Task<bool> SavChangeAsync(CancellationToken cancellationToken)
         {
-            await applicationDbContext.SaveChangesAsync(cancellationToken);
+           var result = await applicationDbContext.SaveChangesAsync(cancellationToken);
+           
+           if(result > 0)
+           {
+              return true;
+           }
+           return false;
         }
 
         public void Dispose()

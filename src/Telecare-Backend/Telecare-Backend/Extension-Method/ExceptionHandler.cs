@@ -27,13 +27,6 @@ namespace Telecare_Backend.Extension_Method
                             Message = "Internal Server Error",
                             StatusCode = context.Response.StatusCode
                         }.ToString());
-
-
-
-                        /// মাথা কাজ করছে না আমার 
-                        ///কিছু ভাল লাগছে না। 
-
-
                     }
                 });
             });

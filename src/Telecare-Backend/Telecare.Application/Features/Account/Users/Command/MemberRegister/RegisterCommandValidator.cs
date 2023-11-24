@@ -8,7 +8,7 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
         {
             RuleFor(x => x.memberDto.Email)
                 .Cascade(CascadeMode.Stop)
-                .EmailAddress()
+                .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible)
                 .NotNull()
                 .NotEmpty()
                 .MinimumLength(2)
