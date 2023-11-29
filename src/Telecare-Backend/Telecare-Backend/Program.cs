@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using System.Reflection;
+using Telecare.Application.Logger;
 using Telecare.Persistance.Contexts;
 using Telecare.Presentation.Extension;
 using Telecare_Backend.Extension_Method;
@@ -24,9 +24,13 @@ Log.Logger = new LoggerConfiguration()
 //Service Extension
 builder.Services.DependecyServiceConfiguration();
 
+//
+
 //MediatR  and Fluent Validation Configuration
-builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.Load("Telecare.Application")));
-builder.Services.AddValidatorsFromAssembly(typeof(Telecare.Application.ApplicationAssemblyReference).Assembly);
+var assembly = typeof(Telecare.Application.ApplicationAssemblyReference).Assembly; //Get Assembly for this Telecare.Application Project.
+
+builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(assembly));
+builder.Services.AddValidatorsFromAssembly(assembly);
 
 //Dbcontext Configuration
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
@@ -51,7 +55,10 @@ try
     var env = app.Environment;
     app.ConfigureSwaggerUI(env);
 
-    // Configure the HTTP request pipeline.
+    /*Configure the HTTP request pipeline.*/
+
+    //Congfigure global error handling using mildleware
+    app.ConfigureExceptionHandler(new LoggerManager());
 
     app.UseHttpsRedirection();
 
