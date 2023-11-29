@@ -2,17 +2,16 @@
 using FluentValidation;
 using Mapster;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Telecare.Domain.UnitofWork;
 
 namespace Telecare.Application.Features.Account.Users.Command.Register
 {
     public sealed class RegisterCommandHandler : IRequestHandler<RegisterUserCommand>
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IApplicationUnitofWork unitOfWork;
         private readonly IValidator<RegisterUserCommand> validator;
 
-        public RegisterCommandHandler(IUnitOfWork unitOfWork, IValidator<RegisterUserCommand> validator)
+        public RegisterCommandHandler(IApplicationUnitofWork unitOfWork, IValidator<RegisterUserCommand> validator)
         {
             this.unitOfWork = unitOfWork;
             this.validator = validator;
@@ -22,7 +21,7 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
         {
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
-            if(!validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
                 throw new ValidationException(validationResult.Errors);
             }
@@ -32,7 +31,7 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
             await unitOfWork.MemberRepositrory.IsertAsync(user);
             var result = await unitOfWork.SavChangeAsync(cancellationToken);
 
-            if(result)
+            if (result)
             {
 
             }

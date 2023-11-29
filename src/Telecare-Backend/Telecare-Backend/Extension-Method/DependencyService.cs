@@ -1,4 +1,5 @@
-﻿using Telecare.Application.Contract;
+﻿using Microsoft.EntityFrameworkCore;
+using Telecare.Application.Contract;
 using Telecare.Application.Logger;
 using Telecare.Domain.Logger;
 using Telecare.Domain.Repositories.UserRepository;
@@ -15,10 +16,14 @@ namespace Telecare_Backend.Extension_Method
         {
             //Logger 
             services.AddSingleton<ILogggerManager, LoggerManager>();
+
             //DBContext
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<DbContext>();
+
             //unit of Work
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IApplicationUnitofWork,ApplicationUnitofWork>();
 
             //repository
             services.AddScoped<IMemberRepositrory, MemberRepository>();

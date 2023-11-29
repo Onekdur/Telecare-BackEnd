@@ -1,34 +1,31 @@
-﻿using Telecare.Application.Contract;
-using Telecare.Domain.Repositories.UserRepository;
+﻿using Microsoft.EntityFrameworkCore;
 using Telecare.Domain.UnitofWork;
 
 namespace Telecare.Persistance.UnitofWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IApplicationDbContext applicationDbContext;
-        public IMemberRepositrory MemberRepositrory { get;}
-        public UnitOfWork(IApplicationDbContext applicationDbContext, 
-            IMemberRepositrory memberRepositrory)
+        public DbContext DbContext { get; }
+
+        public UnitOfWork(DbContext dbContext)
         {
-            this.applicationDbContext = applicationDbContext;
-            MemberRepositrory = memberRepositrory;
+            DbContext = dbContext;
         }
 
         public async Task<bool> SavChangeAsync(CancellationToken cancellationToken)
         {
-           var result = await applicationDbContext.SaveChangesAsync(cancellationToken);
-           
-           if(result > 0)
-           {
-              return true;
-           }
-           return false;
+            var result = await DbContext.SaveChangesAsync(cancellationToken);
+
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void Dispose()
         {
-             applicationDbContext.Dispose();
+            DbContext.Dispose();
         }
     }
 }
