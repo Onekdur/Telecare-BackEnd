@@ -2,6 +2,7 @@
 using FluentValidation;
 using Mapster;
 using MediatR;
+using Telecare.Application.Encryption;
 using Telecare.Domain.UnitofWork;
 
 namespace Telecare.Application.Features.Account.Users.Command.Register
@@ -27,6 +28,7 @@ namespace Telecare.Application.Features.Account.Users.Command.Register
             }
 
             var user = request.memberDto.Adapt<Member>();
+            user.PasswordHash = Password.HssingPassword( request.memberDto.Password);
 
             await unitOfWork.MemberRepositrory.IsertAsync(user);
             var result = await unitOfWork.SavChangeAsync(cancellationToken);

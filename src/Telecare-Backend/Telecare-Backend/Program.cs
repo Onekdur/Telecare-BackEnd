@@ -16,10 +16,10 @@ var connectionString = builder.Configuration.GetConnectionString("TelecareDb");
 var LoggingconnectionString = builder.Configuration.GetConnectionString("TelecareLoggingDb");
 
 //Serilog Configuration
-Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()
-    .ReadFrom.Configuration(builder.Configuration)
-    .CreateBootstrapLogger();
+//Log.Logger = new LoggerConfiguration()
+//    .MinimumLevel.Debug()
+//    .ReadFrom.Configuration(builder.Configuration)
+//    .CreateBootstrapLogger();
 
 //Service Extension
 builder.Services.DependecyServiceConfiguration();
