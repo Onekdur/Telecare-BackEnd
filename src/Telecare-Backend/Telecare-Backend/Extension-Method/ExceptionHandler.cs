@@ -24,7 +24,7 @@ namespace Telecare_Backend.Extension_Method
 
                         await context.Response.WriteAsync(new ErrorModel()
                         {
-                            Message = "Internal Server Error",
+                            Message = contextFeature.Error.Message,
                             StatusCode = context.Response.StatusCode
                         }.ToString());
                     }

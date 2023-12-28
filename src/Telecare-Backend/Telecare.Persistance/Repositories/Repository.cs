@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Telecare.Application.Contract;
+using Telecare.Domain.Common;
 using Telecare.Domain.Repositories;
 
 namespace Telecare.Persistance.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity,Tkey> : IRepository<TEntity,Tkey> where TEntity : class, IEntity<Tkey>
     {
         private readonly IApplicationDbContext dbContext;
         private DbSet<TEntity> dbSet;
@@ -41,10 +42,10 @@ namespace Telecare.Persistance.Repositories
 
         public Task<int> GetCountAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+           throw new NotImplementedException();
         }
 
-        public Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        public Task<bool> IsExistAsync(Guid id, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }

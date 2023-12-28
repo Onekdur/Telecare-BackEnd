@@ -1,14 +1,16 @@
 ﻿using Entities.Models.Friends;
 using Entities.Models.Post.PostContent.Photo;
 using Microsoft.AspNetCore.Identity;
+using Telecare.Domain.Common;
 using Telecare.Domain.Entities.Admins;
 using Telecare.Domain.Entities.User.Doctor;
 using Telecare.Domain.Enum;
 
 namespace Entities.Models.Members
 {
-    public class Member : IdentityUser<Guid>
+    public class Member : IdentityUser<Guid>, IEntity<Guid>
     {
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender GenDer { get; set; }

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using SigalIRHub.Hub;
 using Telecare.Application.Logger;
 using Telecare.Persistance.Contexts;
 using Telecare.Presentation.Extension;
@@ -45,6 +46,9 @@ builder.Services.AddControllers().
 //Configure Api versioning.
 builder.Services.ConfigureAPIVersion();
 
+//SignalIR Configuration
+builder.Services.AddSignalR();
+
 try
 {
     Log.Write(Serilog.Events.LogEventLevel.Information, "Apllication start");
@@ -60,11 +64,15 @@ try
     //Congfigure global error handling using mildleware
     app.ConfigureExceptionHandler(new LoggerManager());
 
+
     app.UseHttpsRedirection();
 
     app.UseAuthorization();
 
     app.MapControllers();
+
+    //SignIr Middleware Configuration
+    app.MapHub<ChatHub>("/chat");
 
     app.Run();
 }

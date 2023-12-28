@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.Persistance", "Tel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.InfraSturecture", "Telecare.InfraSturecture\Telecare.InfraSturecture.csproj", "{99A353A0-5D83-4468-9329-EB21C060B7E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecare.Presentation", "Telecare.Presentation\Telecare.Presentation.csproj", "{E99AFCA8-1E73-4176-81AA-7ED3B560A6C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecare.Presentation", "Telecare.Presentation\Telecare.Presentation.csproj", "{E99AFCA8-1E73-4176-81AA-7ED3B560A6C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigalIRHub", "SigalIRHub\SigalIRHub.csproj", "{73EF385B-DBE5-4B32-9520-3EE589D6F415}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{E99AFCA8-1E73-4176-81AA-7ED3B560A6C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E99AFCA8-1E73-4176-81AA-7ED3B560A6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E99AFCA8-1E73-4176-81AA-7ED3B560A6C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73EF385B-DBE5-4B32-9520-3EE589D6F415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73EF385B-DBE5-4B32-9520-3EE589D6F415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73EF385B-DBE5-4B32-9520-3EE589D6F415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73EF385B-DBE5-4B32-9520-3EE589D6F415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{54F276AD-3615-4F94-9CFF-661A8471287B} = {8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}
 		{99A353A0-5D83-4468-9329-EB21C060B7E3} = {8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}
 		{E99AFCA8-1E73-4176-81AA-7ED3B560A6C0} = {4F15BCD5-89E1-4A77-B2CF-05D089FFD8E7}
+		{73EF385B-DBE5-4B32-9520-3EE589D6F415} = {8666CA4B-7515-4E53-9AA4-37E8A1FE6EB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CA75C79-C80A-4E65-916F-FBBECAA50740}

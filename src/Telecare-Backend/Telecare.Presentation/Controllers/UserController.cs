@@ -21,7 +21,6 @@ namespace Telecare.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] MemberDTO member, CancellationToken cancellationToken)
         {
-            throw new Exception("hi");
             await sender.Send(new RegisterUserCommand(member));
 
             return Ok("Registarion Successfull");

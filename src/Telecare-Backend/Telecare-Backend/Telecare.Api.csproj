@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SigalIRHub\SigalIRHub.csproj" />
     <ProjectReference Include="..\Telecare.Persistance\Telecare.Persistance.csproj" />
     <ProjectReference Include="..\Telecare.Presentation\Telecare.Presentation.csproj" />
   </ItemGroup>

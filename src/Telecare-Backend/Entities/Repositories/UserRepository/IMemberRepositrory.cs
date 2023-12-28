@@ -2,7 +2,7 @@
 
 namespace Telecare.Domain.Repositories.UserRepository
 {
-    public interface IMemberRepositrory : IRepository<Member>
+    public interface IMemberRepositrory : IRepository<Member,Guid>
     {
     }
 }
