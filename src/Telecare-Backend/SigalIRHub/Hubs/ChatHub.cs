@@ -16,8 +16,11 @@ namespace SigalIRHub.Hub
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.Room);
             _connection[Context.ConnectionId] = userConnection;
+
             await Clients.Group(userConnection.Room)
                 .SendAsync("ReceiveMessage", "Lets Program Bot", $"{userConnection.User} has Joined the Group", DateTime.Now);
+
+            await SendConnectedUser(userConnection.Room!);
         }
 
         public async Task SendMessage(string message)

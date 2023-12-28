@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SigalIRHub.User;
 using Telecare.Application.Contract;
 using Telecare.Application.Logger;
 using Telecare.Domain.Logger;
@@ -27,6 +28,10 @@ namespace Telecare_Backend.Extension_Method
 
             //repository
             services.AddScoped<IMemberRepositrory, MemberRepository>();
+
+            //SignalIR Service
+            services.AddSingleton<IDictionary<string, UserRoomConnection>>(opt =>
+                      new Dictionary<string, UserRoomConnection>());
         }
     }
 }
